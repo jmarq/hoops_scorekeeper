@@ -3,27 +3,22 @@
   border: 1px solid red;
   width: 50%;
   float: left; }
-
-.score-controls:nth-of-type(1) {
-  text-align: right;
-  padding-right: 60px; }
-
-.score-controls:nth-of-type(2) {
-  text-align: left;
-  padding-left: 60px; }
-
-.score-controls button {
-  transition: 125ms linear;
-  display: inline-block;
-  margin: 7px;
-  padding: 7px;
-  font-size: 20px;
-  background-color: #083;
-  color: white;
-  border-radius: 8px; }
-
-.score-controls button:hover {
-  background-color: #294; }
-
-.score-controls button:active {
-  background-color: #038; }
+  .score-controls:nth-of-type(1) {
+    text-align: right;
+    padding-right: 60px; }
+  .score-controls:nth-of-type(2) {
+    text-align: left;
+    padding-left: 60px; }
+  .score-controls button {
+    transition: 125ms linear;
+    display: inline-block;
+    margin: 7px;
+    padding: 7px;
+    font-size: 20px;
+    background-color: #083;
+    color: white;
+    border-radius: 8px; }
+    .score-controls button:hover {
+      background-color: #294; }
+    .score-controls button:active {
+      background-color: #038; }

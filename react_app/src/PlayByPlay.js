@@ -12,7 +12,8 @@ class PlayByPlay extends Component {
 
 	componentDidUpdate(){
 		console.log(ReactDOM.findDOMNode(this));
-		ReactDOM.findDOMNode(this).querySelector("div:last-of-type").scrollIntoView();
+		let div = ReactDOM.findDOMNode(this);
+		div.scrollTop = div.scrollHeight;
 	}
 
 	render(){
