@@ -1,0 +1,15 @@
+<div class="team-wrapper">
+	<h1>{{teams[team]}}</h1>
+	<div class="score-display">
+		{{teamScore(team)}}
+	</div>
+	<div class="percent">
+		shooting {{teamPercent(team) || 0 | number : 2}}%
+	</div>
+	<div class="controls">
+		<button ng-show="needRebound" ng-click="addRebound(team)">got rebound</button>
+		<button ng-hide="needRebound" ng-click="addPlay({team:team, playType:'scored',points:'two'})">+{{pointValues.two}}</button>
+		<button ng-hide="needRebound" ng-click="addPlay({team:team, playType:'scored',points:'three'})">+{{pointValues.three}}</button>
+		<button ng-hide="needRebound" ng-click="addMiss(team)">missed shot</button>
+	</div>
+</div>

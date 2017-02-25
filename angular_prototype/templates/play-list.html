@@ -1,0 +1,8 @@
+<div class="play-list">
+	<h1>plays</h1>
+	<ul>
+		<li ng-repeat="play in statPlays">
+			{{teams[play.team]}} - {{play.playType}} <span ng-if="play.points"> : {{ pointValues[play.points]}} points</span>
+		</li>
+	</ul>
+</div>

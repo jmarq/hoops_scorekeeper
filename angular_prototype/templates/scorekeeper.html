@@ -1,0 +1,19 @@
+<div class="wrapper">
+	<h1>bball scorekeeper</h1>
+	<h2 ng-show="teams[winningTeam]">{{teams[winningTeam]}} wins</h2>
+	team1: <input type="text" ng-model="teams[0]">
+	team2: <input type="text" ng-model="teams[1]">
+	<br>
+	<label for="pt2">2s worth:</label><input id="pt2" type="number" class="twoValue" ng-model="pointValues.two"> 
+	<label for="pt3">3s worth:</label><input id="pt3" type="number" class="threeValue" ng-model="pointValues.three">
+	<br>
+	<label for="gamepoint">game to:</label><input id="gamepoint" type="number" class="gamepoint" ng-model="gamePoint">
+
+	<div class="three-column">
+		<team-stats team="{{0}}"></team-stats>
+		<play-list></play-list>
+		<team-stats team="{{1}}"></team-stats>
+	</div>
+	
+
+</div>
