@@ -32,8 +32,9 @@ class App extends Component {
 
 	teamScore = (teamIndex) =>{
 		/* return {name: ___, score: ___ } */
+		let pointValues = this.state.pointValues;
 		let teamScoringPlays = this.state.statPlays.filter(function(p){return p.team===teamIndex && p.playType==="score"});
-		let totalScore = teamScoringPlays.reduce(function(prev,val){return prev + val.points}, 0);
+		let totalScore = teamScoringPlays.reduce(function(prev,val){return prev + pointValues[val.points]}, 0);
 		return {name:this.state.teamNames[teamIndex], score: totalScore};
 	}
 

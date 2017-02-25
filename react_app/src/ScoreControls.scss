@@ -1,0 +1,31 @@
+.score-controls{
+	box-sizing: border-box;
+	border: 1px solid red;
+	width: 50%;
+	float: left;
+	&:nth-of-type(1){
+		text-align: right;
+		padding-right: 60px;
+	}
+	&:nth-of-type(2){
+		text-align: left;
+		padding-left: 60px;
+	}
+	button{
+		transition: 125ms linear;
+		display: inline-block;
+		margin: 7px;
+		padding: 7px;
+		font-size: 20px;
+		background-color: #083;
+		color: white;
+		border-radius: 8px;
+		&:hover{
+			background-color: #294;
+		}
+		&:active{
+			background-color: #038;
+		}
+
+	}
+}

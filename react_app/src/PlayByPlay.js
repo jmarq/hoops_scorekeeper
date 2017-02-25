@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import "./PlayByPlay.css";
 
 class PlayByPlay extends Component {
 	displayPlays = () => {
@@ -8,9 +10,17 @@ class PlayByPlay extends Component {
 		})
 	}
 
+	componentDidUpdate(){
+		console.log(ReactDOM.findDOMNode(this));
+		ReactDOM.findDOMNode(this).querySelector("div:last-of-type").scrollIntoView();
+	}
+
 	render(){
 		return(
-			<div>stat plays: {this.displayPlays()}</div>
+			<div className="play-by-play">
+				stat plays: 
+				{this.displayPlays()}
+			</div>
 		)
 	}
 

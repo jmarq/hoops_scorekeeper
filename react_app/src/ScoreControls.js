@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
+import "./ScoreControls.css";
 
 class ScoreControls extends Component {
 
+
 	scoreTwo = (event) => {
-		console.log("in scoreTwo");
 		var team = this.props.team.index;
-		var points = 2;
 		this.props.addPlay(
-			{team: team, points: points, playType:"score"}
+			{team: team, points:"two", playType:"score"}
+		);				
+	}
+
+	scoreThree = (event) => {
+		var team = this.props.team.index;
+		this.props.addPlay(
+			{team: team, points:"three", playType:"score"}
 		);				
 	}
 
@@ -25,7 +32,7 @@ class ScoreControls extends Component {
 
 	render(){
 		return(
-			<div>
+			<div className="score-controls">
 			  <p>{this.props.team.name}</p>
 				{this.props.needRebound &&
 				  <button onClick={this.rebound}>rebound</button>
@@ -33,6 +40,7 @@ class ScoreControls extends Component {
 				{this.props.needRebound ||
 				<span>
 					<button onClick={this.scoreTwo}>+2</button>				
+					<button onClick={this.scoreThree}>+3</button>				
 					<button onClick={this.addMiss}>miss</button>
 				</span>
 				}
