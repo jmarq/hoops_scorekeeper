@@ -65,7 +65,7 @@ class App extends Component {
 
 
 	render(){
-		// break the endgame modal into its own component eventually
+		// break the endgame modal and gamepoint input into their own components eventually
     return(
 			<div>
 			  <h1>game point: <input type="number" value={this.state.gamePoint} onChange={this.changeGamePoint}></input></h1>
