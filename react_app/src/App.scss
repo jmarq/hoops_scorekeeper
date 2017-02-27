@@ -1,8 +1,11 @@
 $mainBG: #222;
 $mainFG: #efc;
 
-body{
+
+html{
   background-color: $mainBG;
+}
+body{
 	color: $mainFG;
 	text-align: center;
 }

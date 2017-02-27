@@ -1,5 +1,6 @@
 .play-by-play {
   box-sizing: border-box;
+  clear: left;
   width: 40%;
   border: 1px solid white;
   margin: auto;

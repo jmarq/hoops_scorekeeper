@@ -7,6 +7,7 @@ class ScoreDisplay extends Component{
 			<div className="score-display">
 				<h2>{this.props.team.name}</h2>
 				<h1>{this.props.team.score}</h1>
+				<progress class="progress" value={this.props.team.score} max={this.props.gamepoint}></progress>
 			</div>
 		)
 	}
@@ -17,8 +18,8 @@ class Scoreboard extends Component{
 	render(){
 		return(
 			<div className="scoreboard">
-				<ScoreDisplay team={this.props.teams[0]}/>
-				<ScoreDisplay team={this.props.teams[1]}/>
+				<ScoreDisplay gamepoint={this.props.gamepoint} team={this.props.teams[0]}/>
+				<ScoreDisplay gamepoint={this.props.gamepoint} team={this.props.teams[1]}/>
 			</div>
 		)
 	}
