@@ -1,0 +1,6 @@
+div.team-stats {
+  box-sizing: border-box;
+  border: 1px solid orange;
+  color: #efc;
+  width: 30%;
+  float: left; }

@@ -5,6 +5,7 @@ import './App.css';
 import ScoreControls from './ScoreControls';
 import Scoreboard from './Scoreboard';
 import PlayByPlay from './PlayByPlay';
+import TeamStats from './TeamStats.js';
  
 class App extends Component {
 	constructor(props){
@@ -12,7 +13,7 @@ class App extends Component {
 		this.state = {
 			statPlays: [],
 			gamePoint: 15,
-			pointValues: {"two":2,"three":3}, //need to factor this into the scoring
+			pointValues: {"two":1,"three":2}, //need to factor this into the scoring
 			teamNames: ['Team 1', 'Team 2'],
 			endGameAcknowledged: false  //for showing/hiding modal, maybe also for disabling stat buttons?  think about this. how should the app act after game point reached?
 		}
@@ -58,12 +59,16 @@ class App extends Component {
 		}
 	}
 
+	changeGamePoint = (ev) => {
+		this.setState({gamePoint: ev.target.value});
+	}
+
 
 	render(){
 		// break the endgame modal into its own component eventually
     return(
 			<div>
-			  <h1>game point {this.state.gamePoint}</h1>
+			  <h1>game point: <input type="number" value={this.state.gamePoint} onChange={this.changeGamePoint}></input></h1>
 					<div className={"modal" + (this.winningTeam() && !this.state.endGameAcknowledged ? " is-active": "")}>
 				  	<div className="modal-background"></div>
 					  <div className="modal-content">
@@ -73,9 +78,11 @@ class App extends Component {
 					</div>
 			  	<Scoreboard gamepoint={this.state.gamePoint} teams={[this.teamScore(0),this.teamScore(1)]}/>
 				<div>
-					<ScoreControls needRebound={this.needRebound()} addPlay={this.addPlay} team={{index:0, name: this.state.teamNames[0]}}></ScoreControls>					
-					<ScoreControls needRebound={this.needRebound()} addPlay={this.addPlay} team={{index:1, name: this.state.teamNames[1]}}></ScoreControls>					
+					<ScoreControls values={this.state.pointValues} needRebound={this.needRebound()} addPlay={this.addPlay} team={{index:0, name: this.state.teamNames[0]}}></ScoreControls>					
+					<ScoreControls values={this.state.pointValues} needRebound={this.needRebound()} addPlay={this.addPlay} team={{index:1, name: this.state.teamNames[1]}}></ScoreControls>
+					<TeamStats team={{index:0, name:this.state.teamNames[0]}} plays={this.state.statPlays}></TeamStats>
 					<PlayByPlay teamNames={this.state.teamNames} plays={this.state.statPlays}/>
+					<TeamStats team={{index:1, name:this.state.teamNames[1]}} plays={this.state.statPlays}></TeamStats>
 				</div>
 			</div>
 		)

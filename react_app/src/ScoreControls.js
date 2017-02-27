@@ -39,8 +39,8 @@ class ScoreControls extends Component {
 				}
 				{this.props.needRebound ||
 				<span>
-					<button onClick={this.scoreTwo}>+2</button>				
-					<button onClick={this.scoreThree}>+3</button>				
+					<button onClick={this.scoreTwo}>+{this.props.values.two}</button>				
+					<button onClick={this.scoreThree}>+{this.props.values.three}</button>				
 					<button onClick={this.addMiss}>miss</button>
 				</span>
 				}

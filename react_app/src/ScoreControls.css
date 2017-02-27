@@ -15,10 +15,10 @@
     margin: 7px;
     padding: 7px;
     font-size: 20px;
-    background-color: #083;
+    background-color: #086;
     color: white;
     border-radius: 8px; }
     .score-controls button:hover {
-      background-color: #294; }
+      background-color: #297; }
     .score-controls button:active {
-      background-color: #038; }
+      background-color: #068; }
