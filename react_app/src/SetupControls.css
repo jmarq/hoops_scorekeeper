@@ -1,0 +1,7 @@
+.setup-controls {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto; }
+  .setup-controls label.label {
+    text-align: left;
+    color: #efc; }

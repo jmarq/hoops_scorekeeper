@@ -6,6 +6,8 @@ import ScoreControls from './ScoreControls';
 import Scoreboard from './Scoreboard';
 import PlayByPlay from './PlayByPlay';
 import TeamStats from './TeamStats.js';
+import Tabs from "./Tabs.js";
+import SetupControls from "./SetupControls.js";
  
 class App extends Component {
 	constructor(props){
@@ -15,7 +17,8 @@ class App extends Component {
 			gamePoint: 15,
 			pointValues: {"two":1,"three":2}, //need to factor this into the scoring
 			teamNames: ['Team 1', 'Team 2'],
-			endGameAcknowledged: false  //for showing/hiding modal, maybe also for disabling stat buttons?  think about this. how should the app act after game point reached?
+			endGameAcknowledged: false,  //for showing/hiding modal, maybe also for disabling stat buttons?  think about this. how should the app act after game point reached?
+			activeTab: "setup",
 		}
 	}	
 	
@@ -60,7 +63,7 @@ class App extends Component {
 	}
 
 	changeGamePoint = (ev) => {
-		this.setState({gamePoint: ev.target.value, endGameAcknowledged: false});
+		this.setState({gamePoint: Number(ev.target.value), endGameAcknowledged: false});
 	}
 
 	changeTwo = (ev) => {
@@ -71,31 +74,74 @@ class App extends Component {
 		this.setState({pointValues: {two: this.state.pointValues.two, three: Number(ev.target.value)}});
 	}
 
+	handleTab = (ev) => {
+		this.setState({activeTab: ev.target.getAttribute("data-tab")});
+	}
+
+	undoPlay = (ev) => {
+		this.setState({statPlays: this.state.statPlays.slice(0,-1)});
+	}
+
+	reset = (ev) => {
+		this.setState({
+			statPlays: [],
+			endGameAcknowledged: false
+		});
+	}
+
+	tab_content = () => {
+		switch(this.state.activeTab){
+			case "score": 
+				return(
+					<div>
+						<div>
+					  	<Scoreboard gamepoint={this.state.gamePoint} teams={[this.teamScore(0),this.teamScore(1)]}/>
+					  </div>
+						<div>
+							<ScoreControls undo={this.undoPlay} values={this.state.pointValues} needRebound={this.needRebound()} addPlay={this.addPlay} team={{index:0, name: this.state.teamNames[0]}}></ScoreControls>					
+							<ScoreControls undo={this.undoPlay} values={this.state.pointValues} needRebound={this.needRebound()} addPlay={this.addPlay} team={{index:1, name: this.state.teamNames[1]}}></ScoreControls>
+						</div>
+					</div>
+				);
+				break;
+			case "stats":
+				return(
+					<div>
+						<TeamStats team={{index:0, name:this.state.teamNames[0]}} plays={this.state.statPlays}></TeamStats>
+						<TeamStats team={{index:1, name:this.state.teamNames[1]}} plays={this.state.statPlays}></TeamStats>
+						<PlayByPlay teamNames={this.state.teamNames} plays={this.state.statPlays} pointValues={this.state.pointValues}/>
+					</div>
+				);
+				break;
+			case "setup":
+				return(
+					<SetupControls reset={this.reset} gamePoint={this.state.gamePoint} pointValues={this.state.pointValues} handleGamePoint={this.changeGamePoint} handleTwoValue={this.changeTwo} handleThreeValue={this.changeThree}></SetupControls>
+				);
+				break;
+			default:
+			  return "";
+
+		}
+	}
 
 	render(){
 		// break the endgame modal and gamepoint input into their own components eventually
     return(
 			<div>
-			  <h1>
-			  	game point: <input type="number" value={this.state.gamePoint} onChange={this.changeGamePoint}></input> 
-			  	twos worth: <input type="number" value={this.state.pointValues.two} onChange={this.changeTwo}></input> 
-			  	threes worth: <input type="number" value={this.state.pointValues.three} onChange={this.changeThree}></input> 
-			  </h1>
-					<div className={"modal" + (this.winningTeam() && !this.state.endGameAcknowledged ? " is-active": "")}>
-				  	<div className="modal-background"></div>
-					  <div className="modal-content">
-						  <h1>{this.winningTeam()} is the winner</h1>
-					  </div>
-						<button className="modal-close" onClick={this.acknowledgeEnd}></button>
-					</div>
-			  	<Scoreboard gamepoint={this.state.gamePoint} teams={[this.teamScore(0),this.teamScore(1)]}/>
-				<div>
-					<ScoreControls values={this.state.pointValues} needRebound={this.needRebound()} addPlay={this.addPlay} team={{index:0, name: this.state.teamNames[0]}}></ScoreControls>					
-					<ScoreControls values={this.state.pointValues} needRebound={this.needRebound()} addPlay={this.addPlay} team={{index:1, name: this.state.teamNames[1]}}></ScoreControls>
-					<TeamStats team={{index:0, name:this.state.teamNames[0]}} plays={this.state.statPlays}></TeamStats>
-					<PlayByPlay teamNames={this.state.teamNames} plays={this.state.statPlays} pointValues={this.state.pointValues}/>
-					<TeamStats team={{index:1, name:this.state.teamNames[1]}} plays={this.state.statPlays}></TeamStats>
+
+				<div className={"modal" + (this.winningTeam() && !this.state.endGameAcknowledged ? " is-active": "")}>
+			  	<div className="modal-background"></div>
+				  <div className="modal-content">
+					  <h1>{this.winningTeam()} is the winner</h1>
+				  </div>
+					<button className="modal-close" onClick={this.acknowledgeEnd}></button>
 				</div>
+
+			  <Tabs activeTab={this.state.activeTab} handler={this.handleTab}></Tabs>
+			  { this.tab_content() }
+			  
+
+				
 			</div>
 		)
 	}

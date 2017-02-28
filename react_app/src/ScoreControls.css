@@ -5,10 +5,12 @@
   float: left; }
   .score-controls:nth-of-type(1) {
     text-align: right;
-    padding-right: 60px; }
+    padding-right: 10px;
+    border-right: 1px solid #efc; }
   .score-controls:nth-of-type(2) {
     text-align: left;
-    padding-left: 60px; }
+    padding-left: 10px;
+    border-left: 1px solid #efc; }
   .score-controls button {
     transition: 125ms linear;
     display: inline-block;
@@ -22,3 +24,9 @@
       background-color: #297; }
     .score-controls button:active {
       background-color: #068; }
+    .score-controls button.undo-play {
+      background-color: red; }
+      .score-controls button.undo-play:hover {
+        background-color: #cc0000; }
+      .score-controls button.undo-play:active {
+        background-color: #660000; }
