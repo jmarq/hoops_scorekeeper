@@ -5,9 +5,15 @@ import "./PlayByPlay.css";
 class PlayByPlay extends Component {
 	displayPlays = () => {
 		let teamNames = this.props.teamNames;
-		return this.props.plays.map(function(d,i){
-			return <div key={i}>{teamNames[d.team]} - {d.playType} {d.points}</div>
-		})
+		let pointValues = this.props.pointValues;
+		if(this.props.plays.length){
+			return this.props.plays.map(function(d,i){
+				return <div className="play" key={i}>{teamNames[d.team]} - {d.playType} {pointValues[d.points]}</div>
+			})
+		}
+		else{
+			return <div className="play">No plays yet</div>
+		}
 	}
 
 	componentDidUpdate(){
@@ -20,7 +26,7 @@ class PlayByPlay extends Component {
 		return(
 			<div className="play-by-play">
 				stat plays: 
-				{this.displayPlays()}
+				{this.displayPlays() || <div>no plays yet</div>}
 			</div>
 		)
 	}

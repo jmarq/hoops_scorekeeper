@@ -1,9 +1,14 @@
+@import "variables.scss";
+
 .play-by-play{
 	box-sizing: border-box;
 	float: left;
 	width: 40%;
-	border: 1px solid white;
+	border: $debugBorder;
   	margin: auto;
   	height: 200px;
 	overflow-y: scroll;
+	.play{
+		border-bottom: 1px solid lighten($mainBG, 10%);
+	}
 }

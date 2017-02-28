@@ -60,7 +60,15 @@ class App extends Component {
 	}
 
 	changeGamePoint = (ev) => {
-		this.setState({gamePoint: ev.target.value});
+		this.setState({gamePoint: ev.target.value, endGameAcknowledged: false});
+	}
+
+	changeTwo = (ev) => {
+		this.setState({pointValues: {two: Number(ev.target.value), three: this.state.pointValues.three}});
+	}
+
+	changeThree = (ev) => {
+		this.setState({pointValues: {two: this.state.pointValues.two, three: Number(ev.target.value)}});
 	}
 
 
@@ -68,7 +76,11 @@ class App extends Component {
 		// break the endgame modal and gamepoint input into their own components eventually
     return(
 			<div>
-			  <h1>game point: <input type="number" value={this.state.gamePoint} onChange={this.changeGamePoint}></input></h1>
+			  <h1>
+			  	game point: <input type="number" value={this.state.gamePoint} onChange={this.changeGamePoint}></input> 
+			  	twos worth: <input type="number" value={this.state.pointValues.two} onChange={this.changeTwo}></input> 
+			  	threes worth: <input type="number" value={this.state.pointValues.three} onChange={this.changeThree}></input> 
+			  </h1>
 					<div className={"modal" + (this.winningTeam() && !this.state.endGameAcknowledged ? " is-active": "")}>
 				  	<div className="modal-background"></div>
 					  <div className="modal-content">
@@ -81,7 +93,7 @@ class App extends Component {
 					<ScoreControls values={this.state.pointValues} needRebound={this.needRebound()} addPlay={this.addPlay} team={{index:0, name: this.state.teamNames[0]}}></ScoreControls>					
 					<ScoreControls values={this.state.pointValues} needRebound={this.needRebound()} addPlay={this.addPlay} team={{index:1, name: this.state.teamNames[1]}}></ScoreControls>
 					<TeamStats team={{index:0, name:this.state.teamNames[0]}} plays={this.state.statPlays}></TeamStats>
-					<PlayByPlay teamNames={this.state.teamNames} plays={this.state.statPlays}/>
+					<PlayByPlay teamNames={this.state.teamNames} plays={this.state.statPlays} pointValues={this.state.pointValues}/>
 					<TeamStats team={{index:1, name:this.state.teamNames[1]}} plays={this.state.statPlays}></TeamStats>
 				</div>
 			</div>

@@ -1,17 +1,19 @@
+@import "variables.scss";
+
 .scoreboard{
 	height: 200px;
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .score-display{
-  box-sizing: border-box;
-	border: 1px solid #efc;
+ 	box-sizing: border-box;
+	border: $debugBorder;
 	width: 50%;
 	padding: 20px;
 	padding-right: 60px;
 	text-align: right;
 	float: left;
-  &:nth-child(2){
+  	&:nth-child(2){
 		text-align: left;
 		padding-left: 60px;
 		padding-right: 20px;

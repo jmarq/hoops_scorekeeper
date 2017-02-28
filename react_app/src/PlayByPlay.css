@@ -2,7 +2,10 @@
   box-sizing: border-box;
   float: left;
   width: 40%;
-  border: 1px solid white;
+  border: 0px solid #efc;
   margin: auto;
   height: 200px;
   overflow-y: scroll; }
+
+.play-by-play .play {
+  border-bottom: 1px solid #3c3c3c; }

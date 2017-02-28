@@ -1,9 +1,22 @@
 @import "variables.scss";
 
+$border: 1px solid red;
+
 div.team-stats{
 	box-sizing: border-box;
-	border: 1px solid orange;
+	//border: 1px solid orange;
+	border: $debugBorder;
 	color: $mainFG;
 	width: 30%;
 	float: left;
+	table{
+	  background-color: lighten($mainBG, 10%);
+	  color: darken($mainFG, 7%);
+	  td{
+	  	border-bottom-color: $mainBG;
+	  }
+	  tr:hover{
+	  	background-color: $mainBG;
+	  }
+	}
 }

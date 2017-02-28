@@ -39,14 +39,16 @@ class TeamStats extends Component{
 			<div className="team-stats">
 				<h1>stats for {this.props.team.name}</h1>
 				<table className="table">
-					<tr>
-						<td>Shot Percentage</td>
-						<td>{this.shotPercentage()}</td>
-					</tr>
-					<tr>
-						<td>Rebounds</td>
-						<td>{this.rebounds()}</td>
-					</tr>
+					<tbody>
+						<tr>
+							<td>Shot Percentage</td>
+							<td>{this.shotPercentage()}</td>
+						</tr>
+						<tr>
+							<td>Rebounds</td>
+							<td>{this.rebounds()}</td>
+						</tr>
+					</tbody>
 				</table>
 			</div>
 		)
