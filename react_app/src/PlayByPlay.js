@@ -25,7 +25,7 @@ class PlayByPlay extends Component {
 	render(){
 		return(
 			<div className="play-by-play">
-				stat plays: 
+				Play-by-Play: 
 				{this.displayPlays() || <div>no plays yet</div>}
 			</div>
 		)

@@ -37,7 +37,7 @@ class TeamStats extends Component{
 	render(){
 		return(
 			<div className="team-stats">
-				<h1>stats for {this.props.team.name}</h1>
+				<h1>{this.props.team.name}</h1>
 				<table className="table">
 					<tbody>
 						<tr>

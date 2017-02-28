@@ -33,7 +33,6 @@ class ScoreControls extends Component {
 	render(){
 		return(
 			<div className="score-controls">
-			  <p>{this.props.team.name}</p>
 				{this.props.needRebound &&
 				  <button onClick={this.rebound}>rebound</button>
 				}
@@ -44,6 +43,9 @@ class ScoreControls extends Component {
 					<button onClick={this.addMiss}>miss</button>
 				</span>
 				}
+				<p>
+				<button className="undo-play" onClick={this.props.undo}>undo</button>
+				</p>
 			</div>
 		)
 	}

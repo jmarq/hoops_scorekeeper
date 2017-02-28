@@ -1,0 +1,11 @@
+@import "./variables.scss";
+
+.setup-controls{
+	label.label{
+		text-align: left;
+		color: $mainFG;
+	}
+	max-width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
