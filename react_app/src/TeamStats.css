@@ -4,13 +4,10 @@ div.team-stats {
   color: #efc;
   width: 30%;
   float: left; }
-
-div.team-stats table {
-  background-color: #3c3c3c;
-  color: #e2ffa8; }
-
-div.team-stats table td {
-  border-bottom-color: #222; }
-
-div.team-stats table tr:hover {
-  background-color: #222; }
+  div.team-stats table {
+    background-color: #3c3c3c;
+    color: #e2ffa8; }
+    div.team-stats table td {
+      border-bottom-color: #222; }
+    div.team-stats table tr:hover {
+      background-color: #222; }
