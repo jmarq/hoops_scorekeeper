@@ -1,3 +1,8 @@
+@import "./variables.scss";
+
 .tabs a{
 	color: white;
+	&:hover{
+		color: $mainFG;
+	}
 }

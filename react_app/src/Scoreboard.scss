@@ -24,3 +24,13 @@
 		margin: 0px;
 	}
 }
+
+//progress bar styles. need to test on edge.
+$progressColor: #fa0;
+progress[value]::-webkit-progress-value {
+  background-color: $progressColor;
+}
+
+progress[value]::-moz-progress-bar {
+  background-color: $progressColor;
+}
