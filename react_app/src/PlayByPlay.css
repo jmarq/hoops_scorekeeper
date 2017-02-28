@@ -7,6 +7,5 @@
   margin: auto;
   height: 200px;
   overflow-y: scroll; }
-
-.play-by-play .play {
-  border-bottom: 1px solid #3c3c3c; }
+  .play-by-play .play {
+    border-bottom: 1px solid #3c3c3c; }
