@@ -21,25 +21,28 @@ class App extends Component {
 			activeTab: "setup",
 		}
 	}	
-	
+	 
+	// user has closed the "winner" modal.
 	acknowledgeEnd = () => {
     this.setState({endGameAcknowledged: true});
 	}
 
-	// a team scored a basket
+	// for adding to statPlays.  
 	addPlay = (play) => {
 		var newPlays = [ ...this.state.statPlays, play];
-		console.log("in addScoringPlay");
-		console.log(newPlays);
+		//console.log("in addScoringPlay");
+		//console.log(newPlays);
 		this.setState({statPlays: newPlays, endGameAcknowledged: false}); //if they keep adding plays, maybe the game isn't over yet? even if past gamepoint
 	}
 
+	// for dynamically showing/hiding the rebound buttons.  rebounds are only necessary after misses (and blocks)
 	needRebound = () => {
 		if( this.state.statPlays.length === 0){ return false }
 		let lastPlayType = this.state.statPlays.slice(-1)[0].playType;
 		return lastPlayType === "miss" || lastPlayType === "block" 
 	}
-
+ 
+	// look at statPlays to figure out how many points a team has.
 	teamScore = (teamIndex) =>{
 		/* return {name: ___, score: ___ } */
 		let pointValues = this.state.pointValues;
@@ -48,13 +51,14 @@ class App extends Component {
 		return {name:this.state.teamNames[teamIndex], score: totalScore};
 	}
 
+	// look at team scores and game point to see if anyone has won yet.  "win by two" is assumed, though that should eventually become an option
 	winningTeam = () =>{
-		console.log("in winningTeam");
+		//console.log("in winningTeam");
 		let scores = [this.teamScore(0),this.teamScore(1)];
 		let sortedScores = scores.sort(function(a,b){return b.score - a.score}); //descending sort
-		console.log(sortedScores);
+		//console.log(sortedScores);
 		if(sortedScores[0].score - sortedScores[1].score >=2 && sortedScores[0].score >= this.state.gamePoint){
-			console.log("WINNER");
+			//console.log("WINNER");
 			return sortedScores[0].name;
 		}
 		else{
@@ -62,6 +66,7 @@ class App extends Component {
 		}
 	}
 
+	// several event handlers here that will be passed down as props, the handlers change the "main" state.
 	changeGamePoint = (ev) => {
 		this.setState({gamePoint: Number(ev.target.value), endGameAcknowledged: false});
 	}
@@ -89,6 +94,9 @@ class App extends Component {
 		});
 	}
 
+	// which tab is active? what do we show for that tab?  there is probably a better way to do this. 
+	// also, the number and length of props passed is getting sort of cumbersome.  consider how to address this.
+	// maybe there should be a wrapper component for each switch case?
 	tab_content = () => {
 		switch(this.state.activeTab){
 			case "score": 
@@ -103,7 +111,7 @@ class App extends Component {
 						</div>
 					</div>
 				);
-				break;
+
 			case "stats":
 				return(
 					<div>
@@ -112,12 +120,12 @@ class App extends Component {
 						<PlayByPlay teamNames={this.state.teamNames} plays={this.state.statPlays} pointValues={this.state.pointValues}/>
 					</div>
 				);
-				break;
+
 			case "setup":
 				return(
 					<SetupControls reset={this.reset} gamePoint={this.state.gamePoint} pointValues={this.state.pointValues} handleGamePoint={this.changeGamePoint} handleTwoValue={this.changeTwo} handleThreeValue={this.changeThree}></SetupControls>
 				);
-				break;
+				
 			default:
 			  return "";
 

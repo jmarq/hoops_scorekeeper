@@ -17,7 +17,7 @@ class PlayByPlay extends Component {
 	}
 
 	componentDidMount(){
-		console.log(ReactDOM.findDOMNode(this));
+		//console.log(ReactDOM.findDOMNode(this));
 		let div = ReactDOM.findDOMNode(this);
 		div.scrollTop = div.scrollHeight;
 	}
