@@ -87,11 +87,31 @@ class App extends Component {
 		this.setState({statPlays: this.state.statPlays.slice(0,-1)});
 	}
 
+	
 	reset = (ev) => {
-		this.setState({
-			statPlays: [],
-			endGameAcknowledged: false
-		});
+		if(confirm("Are you sure you want to reset the game?")){
+			this.setState({
+				statPlays: [],
+				endGameAcknowledged: false
+			});
+		}
+	}
+
+	propsForSetup = () => {
+		return {
+			handlers:{
+				reset: this.reset,
+				twoValue: this.changeTwo,
+				threeValue: this.changeThree,
+				gamePoint: this.changeGamePoint,
+			},
+			state:{
+				gamePoint: this.state.gamePoint,
+				pointValues: this.state.pointValues,
+				teamNames: this.state.teamNames,
+			}
+
+		}
 	}
 
 	// which tab is active? what do we show for that tab?  there is probably a better way to do this. 
@@ -123,7 +143,7 @@ class App extends Component {
 
 			case "setup":
 				return(
-					<SetupControls reset={this.reset} gamePoint={this.state.gamePoint} pointValues={this.state.pointValues} handleGamePoint={this.changeGamePoint} handleTwoValue={this.changeTwo} handleThreeValue={this.changeThree}></SetupControls>
+					<SetupControls {...this.propsForSetup()}></SetupControls>
 				);
 				
 			default:
