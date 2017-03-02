@@ -4,8 +4,11 @@
   "private": true,
   "devDependencies": {
     "bulma": "^0.3.1",
+    "enzyme": "^2.7.1",
+    "i": "^0.3.5",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.2",
+    "react-addons-test-utils": "^15.4.2",
     "react-scripts": "0.9.0"
   },
   "dependencies": {
