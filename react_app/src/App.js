@@ -79,6 +79,14 @@ class App extends Component {
 		this.setState({pointValues: {two: this.state.pointValues.two, three: Number(ev.target.value)}});
 	}
 
+	changeTeamOne = (ev) => {
+		this.setState({teamNames: [ev.target.value, this.state.teamNames[1]]});
+	}
+
+	changeTeamTwo = (ev) => {
+		this.setState({teamNames: [this.state.teamNames[0], ev.target.value]});
+	}
+
 	handleTab = (ev) => {
 		this.setState({activeTab: ev.target.getAttribute("data-tab")});
 	}
@@ -104,6 +112,8 @@ class App extends Component {
 				twoValue: this.changeTwo,
 				threeValue: this.changeThree,
 				gamePoint: this.changeGamePoint,
+				teamOne: this.changeTeamOne,
+				teamTwo: this.changeTeamTwo,
 			},
 			state:{
 				gamePoint: this.state.gamePoint,

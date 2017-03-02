@@ -5,6 +5,14 @@ class SetupControls extends Component{
 	render(){
 		return(
 			<div className="setup-controls">
+				<label className="label">Team 1</label>
+				<p className="control">
+					<input className="input" defaultValue={this.props.state.teamNames[0]} onBlur={this.props.handlers.teamOne}></input>
+				</p>
+				<label className="label">Team 2</label>
+				<p className="control">
+					<input className="input" defaultValue={this.props.state.teamNames[1]} onBlur={this.props.handlers.teamTwo}></input>
+				</p>
 				<label className="label">Game Point</label>
 				<p className="control">
 					<input className="input" type="number" defaultValue={this.props.state.gamePoint} onBlur={this.props.handlers.gamePoint}></input>

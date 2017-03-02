@@ -27,6 +27,7 @@ class PlayByPlay extends Component {
 			<div className="play-by-play">
 				Play-by-Play: 
 				{this.displayPlays() || <div>no plays yet</div>}
+				<hr/>
 			</div>
 		)
 	}
