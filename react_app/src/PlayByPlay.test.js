@@ -22,8 +22,9 @@ it('renders correct scoring play', () => {
       <PlayByPlay {...testProps}/>
   );
   let plays = wrapper.find(".play");
-  let first_play = plays.first().text();
-  console.log(first_play);
+  //console.dir(plays);
+  let first_play = plays.at(0).text();
+  //console.log(first_play);
   //console.log(scoreboardTeam1);
   expect(first_play).toEqual("Team 1 - score 1");
 

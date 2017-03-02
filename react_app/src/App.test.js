@@ -8,7 +8,8 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
 });
 
-
+//this should probably be a test on the scoreboard component
+// but it was a nice way to familiarize myself with Enzyme mounting
 it('renders correct team name on scoreboard', () => {
   const wrapper = mount(
       <App/>
@@ -23,9 +24,10 @@ it('renders correct team name on scoreboard', () => {
 		});
 
   let scoreDisplay = wrapper.find(".score-display h2");
-  let scoreboardTeam1 = scoreDisplay.first().text()
-  //console.log(scoreboardTeam1);
+  let scoreboardTeam1 = scoreDisplay.at(0).text();
+  let scoreboardTeam2 = scoreDisplay.at(1).text();
   expect(scoreboardTeam1).toEqual("Jimbo");
+  expect(scoreboardTeam2).toEqual("Jambo");
 
 });
 
