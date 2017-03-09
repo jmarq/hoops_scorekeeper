@@ -174,7 +174,6 @@ class App extends Component {
 				  </div>
 					<button className="modal-close" onClick={this.acknowledgeEnd}></button>
 				</div>
-
 			  <Tabs activeTab={this.state.activeTab} handler={this.handleTab}></Tabs>
 			  { this.tab_content() }
 			  

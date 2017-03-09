@@ -1,4 +1,9 @@
+div.tabs.is-large {
+  margin-bottom: 5px; }
+
 .tabs a {
   color: white; }
-  .tabs a:hover {
-    color: #efc; }
+
+.tabs a:hover {
+  color: #efc;
+  border-bottom: 1px solid #dbdbdb; }
