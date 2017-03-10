@@ -15,8 +15,13 @@ class TeamStats extends Component{
 		}
 		return count;
 	}
+
 	rebounds = () => {
-		return this.countPlayType("rebound");
+		return this.countPlayType('rebound');
+	}
+
+	turnovers = () => {
+		return this.countPlayType('turnover');
 	}
 
 	shotPercentage = () => {
@@ -47,6 +52,10 @@ class TeamStats extends Component{
 						<tr>
 							<td>Rebounds</td>
 							<td>{this.rebounds()}</td>
+						</tr>
+						<tr>
+							<td>Turnovers</td>
+							<td>{this.turnovers()}</td>
 						</tr>
 					</tbody>
 				</table>
