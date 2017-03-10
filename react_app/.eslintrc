@@ -1,0 +1,16 @@
+{
+  "extends" : "google",
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "ecmaFeatures": {
+    "modules": true,
+    "jsx": true
+  },
+  "rules":{
+    "no-invalid-this": 0
+  }
+}

@@ -5,6 +5,8 @@
   "devDependencies": {
     "bulma": "^0.3.1",
     "enzyme": "^2.7.1",
+    "eslint": "^3.17.1",
+    "eslint-config-google": "^0.7.1",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.2",
     "react-addons-test-utils": "^15.4.2",
