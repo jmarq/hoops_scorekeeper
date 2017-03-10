@@ -8,20 +8,30 @@
 .score-display{
  	box-sizing: border-box;
 	border: $debugBorder;
-	width: 50%;
+	width: 40%;
 	padding: 20px;
 	padding-top: 0px;
-	padding-right: 60px;
+	padding-right: 0px;
 	text-align: right;
 	float: left;
-  	&:nth-child(2){
+  	&:nth-child(3){ //3 now instead of 2 because the undo button is now 2nd
 		text-align: left;
-		padding-left: 60px;
+		padding-left: 0px;
 		padding-right: 20px;
+		h1, h2{
+			padding-left: 30px;
+		}
 	}
 	h1{
 		font-size: 60px;
 		margin: 0px;
+		padding-right: 30px;
+	}
+	h2{
+		padding-right: 30px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 }
 
@@ -34,3 +44,30 @@ progress[value]::-webkit-progress-value {
 progress[value]::-moz-progress-bar {
   background-color: $progressColor;
 }
+
+div.undo-wrap{
+	box-sizing: border-box;
+	width: 20%;
+	float: left;
+}
+
+.undo-wrap button{
+		// this has a decent amount in common with the other buttons in ScoreControls.scss, maybe a mixin?
+		transition: 125ms linear;
+		display: inline-block;
+		margin: 0px;
+		margin-top: 80px;
+		padding: 5px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font-size: 20px;
+		color: white;
+		border-radius: 8px;
+		background-color: red;
+		&:hover{
+			background-color: darken(red, 10%);
+		}
+		&:active{
+			background-color: darken(red, 30%);
+		}
+	}

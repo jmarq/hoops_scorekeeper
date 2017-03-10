@@ -142,6 +142,7 @@ class App extends Component {
 					<div>
 						<div>
 							<Scoreboard gamepoint={this.state.gamePoint}
+							undo={this.undoPlay}
 							teams={[this.teamScore(0), this.teamScore(1)]}/>
 						</div>
 						<div>
