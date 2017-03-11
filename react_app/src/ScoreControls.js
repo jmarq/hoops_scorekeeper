@@ -55,7 +55,7 @@ class ScoreControls extends Component {
 				</span>
 				}
 			</div>
-		)
+		);
 	}
 }
 
