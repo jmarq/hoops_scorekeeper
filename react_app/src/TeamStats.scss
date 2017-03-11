@@ -8,6 +8,7 @@ div.team-stats{
 	border: $debugBorder;
 	color: $mainFG;
 	width: 50%;
+	padding: 2px;
 	float: left;
 	table{
 	  background-color: lighten($mainBG, 10%);

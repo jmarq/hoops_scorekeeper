@@ -2,15 +2,21 @@
 
 .play-by-play{
 	box-sizing: border-box;
-	
 	width: 40%;
 	min-width: 300px;
 	clear: both;
-	border: $debugBorder;
   	margin: auto;
-  	height: 200px;
-	overflow-y: scroll;
+  	.play-by-play-list{
+  		border: $debugBorder;
+  		height: 400px;
+		overflow-y: scroll;
+  	}
 	.play{
+		text-align: left;
 		border-bottom: 1px solid lighten($mainBG, 10%);
+		&.last-play{
+			color: #dbdbdb;
+			font-style: italic;
+		}
 	}
 }
