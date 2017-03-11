@@ -41,14 +41,17 @@ class ScoreControls extends Component {
 		return(
 			<div className="score-controls">
 				{this.props.needRebound[0] &&
-				  <button onClick={this.addRebound}>rebound</button>
+					<button className="rebound-button" onClick={this.addRebound}>
+						{this.props.needRebound[1]===this.props.team.index ? 'o. ' : 'd. '}
+						rebound
+					</button>
 				}
 				{this.props.needRebound[0] ||
 				<span>
-					<button onClick={this.scoreTwo}>+{this.props.values.two}</button>				
-					<button onClick={this.scoreThree}>+{this.props.values.three}</button>				
-					<button onClick={this.addMiss}>miss</button>
-					<button onClick={this.addTurnover}>TO</button>
+					<button onClick={this.scoreTwo}>+{this.props.values.two}</button>
+					<button onClick={this.scoreThree}>+{this.props.values.three}</button>
+					<button className='bad-play' onClick={this.addMiss}>miss</button>
+					<button className='bad-play' onClick={this.addTurnover}>TO</button>
 				</span>
 				}
 			</div>

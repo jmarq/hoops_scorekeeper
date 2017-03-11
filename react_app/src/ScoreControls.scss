@@ -30,13 +30,17 @@
 		&:active{
 			background-color: #068;
 		}
-		&.undo-play{
-			background-color: red;
+		&.rebound-button{
+			font-size: 24px;
+		}
+		&.bad-play{
+			$badPlayColor: #a40;
+			background-color: $badPlayColor;
 			&:hover{
-				background-color: darken(red, 10%);
+				background-color: darken($badPlayColor, 10%);
 			}
 			&:active{
-				background-color: darken(red, 30%);
+				background-color: darken($badPlayColor, 30%);
 			}
 		}
 	}
