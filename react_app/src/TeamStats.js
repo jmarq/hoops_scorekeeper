@@ -5,15 +5,25 @@ class TeamStats extends Component{
 	// props should be statPlays, team = {index: __, name: ____}
 
 	countPlayType = (playType) => {
-		let count = 0;
-		let plays = this.props.plays;
-		let teamIndex = this.props.team.index;
-		for( let i = 0; i<plays.length; i +=1 ) {
-			if( plays[i].playType === playType && plays[i].team === teamIndex ) {
-				count += 1;
+		let obj = {
+			team: this.props.team.index,
+			playType: playType,
+		};
+		return this.filterPlaysByObject(obj).length;
+	}
+
+	filterPlaysByObject = (obj) => {
+		let filterFunction = (d) => {
+			let objKeys = Object.keys(obj);
+			for( let i = 0; i < objKeys.length; i+=1 ) {
+				let key = objKeys[i];
+				if(obj[key] !== d[key]) {
+					return false;
+				}
 			}
-		}
-		return count;
+			return true;
+		};
+		return this.props.plays.filter(filterFunction);
 	}
 
 	totalRebounds = () => {
@@ -23,7 +33,12 @@ class TeamStats extends Component{
 	}
 
 	turnovers = () => {
-		return this.countPlayType('turnover');
+		// return this.countPlayType('turnover');
+		let obj = {
+			team: this.props.team.index,
+			playType: 'turnover',
+		};
+		return this.filterPlaysByObject(obj).length;
 	}
 
 	shotPercentage = () => {
@@ -39,6 +54,24 @@ class TeamStats extends Component{
 		return roundedPercentage+' ('+stringFraction+')';
 	}
 
+	twoPointers = () => {
+		let obj = {
+			team: this.props.team.index,
+			playType: 'score',
+			points: 'two',
+		};
+		return this.filterPlaysByObject(obj).length;
+	}
+
+	threePointers = () => {
+		let obj = {
+			team: this.props.team.index,
+			playType: 'score',
+			points: 'three',
+		};
+		return this.filterPlaysByObject(obj).length;
+	}
+
 
 	render() {
 		return(
@@ -49,6 +82,14 @@ class TeamStats extends Component{
 						<tr>
 							<td>Shot Percentage</td>
 							<td>{this.shotPercentage()}</td>
+						</tr>
+						<tr>
+							<td>2PFGM</td>
+							<td>{this.twoPointers()}</td>
+						</tr>
+						<tr>
+							<td>3PFGM</td>
+							<td>{this.threePointers()}</td>
 						</tr>
 						<tr>
 							<td>Offensive Rebounds</td>
