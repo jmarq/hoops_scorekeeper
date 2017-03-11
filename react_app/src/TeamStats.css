@@ -3,6 +3,7 @@ div.team-stats {
   border: 0px solid #efc;
   color: #efc;
   width: 50%;
+  padding: 2px;
   float: left; }
 
 div.team-stats table {
@@ -14,4 +15,3 @@ div.team-stats table td {
 
 div.team-stats table tr:hover {
   background-color: #222; }
-und-color: #222; }

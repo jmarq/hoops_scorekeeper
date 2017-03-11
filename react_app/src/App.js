@@ -171,13 +171,17 @@ class App extends Component {
 					<div>
 						<TeamStats team={{index:0, name:this.state.teamNames[0]}} plays={this.state.statPlays}></TeamStats>
 						<TeamStats team={{index:1, name:this.state.teamNames[1]}} plays={this.state.statPlays}></TeamStats>
-						<PlayByPlay teamNames={this.state.teamNames} plays={this.state.statPlays} pointValues={this.state.pointValues}/>
 					</div>
 				);
 
 			case "setup":
 				return(
 					<SetupControls {...this.propsForSetup()}></SetupControls>
+				);
+
+			case "plays":
+				return(
+					<PlayByPlay teamNames={this.state.teamNames} plays={this.state.statPlays} pointValues={this.state.pointValues}/>
 				);
 				
 			default:
