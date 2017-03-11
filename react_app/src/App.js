@@ -41,13 +41,19 @@ class App extends Component {
 
 	// for dynamically showing/hiding the rebound buttons.
 	// rebounds are only necessary after misses (and blocks)
+	// returns [true/false, team index of team that shot the ball]
 	needRebound = () => {
 		if( this.state.statPlays.length === 0) {
-			return false;
+			return [false, undefined];
 		}
-		let lastPlayType = this.state.statPlays.slice(-1)[0].playType;
-		return lastPlayType === 'miss' || lastPlayType === 'block';
+		let lastPlay = this.state.statPlays.slice(-1)[0];
+		if (lastPlay.playType === 'miss') {
+			return [true, lastPlay.team];
+		}else {
+			return [false, undefined];
+		}
 	}
+
 
 	// look at statPlays to figure out how many points a team has.
 	teamScore = (teamIndex) =>{

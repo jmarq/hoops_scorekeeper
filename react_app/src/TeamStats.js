@@ -8,16 +8,18 @@ class TeamStats extends Component{
 		let count = 0;
 		let plays = this.props.plays;
 		let teamIndex = this.props.team.index;
-		for( let i = 0; i<plays.length; i+=1){
-			if( plays[i].playType === playType && plays[i].team === teamIndex ){
+		for( let i = 0; i<plays.length; i +=1 ) {
+			if( plays[i].playType === playType && plays[i].team === teamIndex ) {
 				count += 1;
 			}
 		}
 		return count;
 	}
 
-	rebounds = () => {
-		return this.countPlayType('rebound');
+	totalRebounds = () => {
+		let offensive = this.countPlayType('offensive rebound');
+		let defensive = this.countPlayType('defensive rebound');
+		return offensive + defensive;
 	}
 
 	turnovers = () => {
@@ -25,21 +27,20 @@ class TeamStats extends Component{
 	}
 
 	shotPercentage = () => {
-		let makes = this.countPlayType("score");
-		let misses = this.countPlayType("miss");
+		let makes = this.countPlayType('score');
+		let misses = this.countPlayType('miss');
 		let total = makes + misses;
 		let percentage = 0;
-		if( total ){
+		if( total ) {
 			percentage = makes / total * 100;
 		}
-		let roundedPercentage = ""+percentage.toFixed(2)+"%";
-		let stringFraction = ""+makes+"/"+total;
-		return roundedPercentage+" ("+stringFraction+")";
+		let roundedPercentage = ''+percentage.toFixed(2)+'%';
+		let stringFraction = ''+makes+'/'+total;
+		return roundedPercentage+' ('+stringFraction+')';
 	}
 
 
-
-	render(){
+	render() {
 		return(
 			<div className="team-stats">
 				<h1>{this.props.team.name}</h1>
@@ -50,8 +51,16 @@ class TeamStats extends Component{
 							<td>{this.shotPercentage()}</td>
 						</tr>
 						<tr>
-							<td>Rebounds</td>
-							<td>{this.rebounds()}</td>
+							<td>Offensive Rebounds</td>
+							<td>{this.countPlayType('offensive rebound')}</td>
+						</tr>
+						<tr>
+							<td>Defensive Rebounds</td>
+							<td>{this.countPlayType('defensive rebound')}</td>
+						</tr>
+						<tr>
+							<td>Total Rebounds</td>
+							<td>{this.totalRebounds()}</td>
 						</tr>
 						<tr>
 							<td>Turnovers</td>
@@ -60,7 +69,7 @@ class TeamStats extends Component{
 					</tbody>
 				</table>
 			</div>
-		)
+		);
 	}
 }
 
