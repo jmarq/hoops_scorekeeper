@@ -4,16 +4,13 @@
   min-width: 300px;
   clear: both;
   margin: auto; }
-
-.play-by-play .play-by-play-list {
-  border: 0px solid #efc;
-  height: 400px;
-  overflow-y: scroll; }
-
-.play-by-play .play {
-  text-align: left;
-  border-bottom: 1px solid #3c3c3c; }
-
-.play-by-play .play.last-play {
-  color: #dbdbdb;
-  font-style: italic; }
+  .play-by-play .play-by-play-list {
+    border: 0px solid #efc;
+    height: 400px;
+    overflow-y: scroll; }
+  .play-by-play .play {
+    text-align: left;
+    border-bottom: 1px solid #3c3c3c; }
+    .play-by-play .play.last-play {
+      color: #dbdbdb;
+      font-style: italic; }

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import "./PlayByPlay.css";
+import './PlayByPlay.css';
 
 class PlayByPlay extends Component {
 	displayPlays = () => {
@@ -11,7 +11,7 @@ class PlayByPlay extends Component {
 			return this.props.plays.map(function(d, i) {
 				return <div className={'play ' +(i===numPlays-1 && 'last-play')}
 						key={i}>
-							{teamNames[d.team]} - {d.playType} {pointValues[d.points]} 
+							{teamNames[d.team]} - {d.playType} {pointValues[d.points]}
 						</div>;
 			});
 		}else{

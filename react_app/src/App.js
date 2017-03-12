@@ -59,37 +59,76 @@ class App extends Component {
 	teamScore = (teamIndex) =>{
 		/* return {name: ___, score: ___ } */
 		let pointValues = this.state.pointValues;
-		let teamScoringPlays = this.state.statPlays.filter(function(p){return p.team===teamIndex && p.playType==="score"});
-		let totalScore = teamScoringPlays.reduce(function(prev,val){return prev + pointValues[val.points]}, 0);
-		return {name:this.state.teamNames[teamIndex], score: totalScore};
+		let teamScoringPlays = this.state.statPlays.filter(function(p) {
+			return p.team === teamIndex && p.playType === 'score';
+		});
+		let totalScore = teamScoringPlays.reduce(function(prev, val) {
+			return prev + pointValues[val.points];
+		}, 0);
+		return {name: this.state.teamNames[teamIndex], score: totalScore};
 	}
 
-	// look at team scores and game point to see if anyone has won yet.  "win by two" is assumed, though that should eventually become an option
+	// look at team scores and game point to see if anyone has won yet.
+	// "win by two" is assumed, though that should eventually become an option
 	winningTeam = () =>{
 		// console.log("in winningTeam");
 		let scores = [this.teamScore(0), this.teamScore(1)];
-		let sortedScores = scores.sort(function(a,b){return b.score - a.score}); //descending sort
+		let sortedScores = scores.sort(function(a, b) {
+			return b.score - a.score;
+		}); // descending sort
 		// console.log(sortedScores);
-		if(sortedScores[0].score - sortedScores[1].score >=2 && sortedScores[0].score >= this.state.gamePoint){
-			//console.log("WINNER");
+		if(sortedScores[0].score - sortedScores[1].score >=2 &&
+			sortedScores[0].score >= this.state.gamePoint) {
+			// console.log("WINNER");
 			return sortedScores[0].name;
-		}
-		else{
-			return false
+		}else{
+			return false;
 		}
 	}
 
-	// several event handlers here that will be passed down as props, the handlers change the "main" state.
+	renderLastPlay = () => {
+		let numStatPlays = this.state.statPlays.length;
+		let last = '';
+		if(numStatPlays) {
+			let lastPlay = this.state.statPlays[numStatPlays-1];
+			// render a string using lastPlay
+			// {teamNames[d.team]} - {d.playType} {pointValues[d.points]}
+			let team = this.state.teamNames[lastPlay.team];
+			let type = lastPlay.playType;
+			let points = this.state.pointValues[lastPlay.points] || '';
+			last = `${team} - ${type} ${points}`;
+		}else {
+			last = 'no plays yet';
+		}
+		return last;
+	}
+
+
+	// several event handlers here that will be passed down as props,
+	// the handlers change the "main" state.
 	changeGamePoint = (ev) => {
-		this.setState({gamePoint: Number(ev.target.value), endGameAcknowledged: false});
+		this.setState({
+			gamePoint: Number(ev.target.value),
+			endGameAcknowledged: false,
+		});
 	}
 
 	changeTwo = (ev) => {
-		this.setState({pointValues: {two: Number(ev.target.value), three: this.state.pointValues.three}});
+		this.setState({
+			pointValues: {
+				two: Number(ev.target.value),
+				three: this.state.pointValues.three,
+			},
+		});
 	}
 
 	changeThree = (ev) => {
-		this.setState({pointValues: {two: this.state.pointValues.two, three: Number(ev.target.value)}});
+		this.setState({
+			pointValues: {
+				two: this.state.pointValues.two,
+				three: Number(ev.target.value),
+			},
+		});
 	}
 
 	changeTeamOne = (ev) => {
@@ -101,11 +140,11 @@ class App extends Component {
 	}
 
 	handleTab = (ev) => {
-		this.setState({activeTab: ev.target.getAttribute("data-tab")});
+		this.setState({activeTab: ev.target.getAttribute('data-tab')});
 	}
 
 	undoPlay = (ev) => {
-		this.setState({statPlays: this.state.statPlays.slice(0,-1)});
+		this.setState({statPlays: this.state.statPlays.slice(0, -1)});
 	}
 
 	reset = (ev) => {
@@ -119,7 +158,7 @@ class App extends Component {
 
 	propsForSetup = () => {
 		return {
-			handlers:{
+			handlers: {
 				reset: this.reset,
 				twoValue: this.changeTwo,
 				threeValue: this.changeThree,
@@ -127,13 +166,13 @@ class App extends Component {
 				teamOne: this.changeTeamOne,
 				teamTwo: this.changeTeamTwo,
 			},
-			state:{
+			state: {
 				gamePoint: this.state.gamePoint,
 				pointValues: this.state.pointValues,
 				teamNames: this.state.teamNames,
-			}
+			},
 
-		}
+		};
 	}
 
 	// which tab is active? what do we show for that tab?
@@ -141,9 +180,15 @@ class App extends Component {
 	// also, the number and length of props passed is getting sort of cumbersome.
 	//   consider how to address this.
 	// maybe there should be a wrapper component for each switch case?
-	tab_content = () => {
-		switch(this.state.activeTab){
-			case "score": 
+	tabContent = () => {
+		switch(this.state.activeTab) {
+
+			case 'setup':
+				return(
+					<SetupControls {...this.propsForSetup()}></SetupControls>
+				);
+
+			case 'score':
 				return(
 					<div>
 						<div>
@@ -151,13 +196,16 @@ class App extends Component {
 							undo={this.undoPlay}
 							teams={[this.teamScore(0), this.teamScore(1)]}/>
 						</div>
+						<div className="score-tab-last-play">
+						last: {this.renderLastPlay()}
+						</div>
 						<div>
-							<ScoreControls undo={this.undoPlay}
+							<ScoreControls
 							values={this.state.pointValues}
 							needRebound={this.needRebound()} addPlay={this.addPlay}
 							team={{index: 0, name: this.state.teamNames[0]}}>
 							</ScoreControls>
-							<ScoreControls undo={this.undoPlay}
+							<ScoreControls
 							values={this.state.pointValues}
 							needRebound={this.needRebound()} addPlay={this.addPlay}
 							team={{index: 1, name: this.state.teamNames[1]}}>
@@ -166,49 +214,48 @@ class App extends Component {
 					</div>
 				);
 
-			case "stats":
+			case 'stats':
 				return(
 					<div>
-						<TeamStats team={{index:0, name:this.state.teamNames[0]}} plays={this.state.statPlays}></TeamStats>
-						<TeamStats team={{index:1, name:this.state.teamNames[1]}} plays={this.state.statPlays}></TeamStats>
+						<TeamStats team={{index: 0, name: this.state.teamNames[0]}}
+						plays={this.state.statPlays}></TeamStats>
+						<TeamStats team={{index: 1, name: this.state.teamNames[1]}}
+						plays={this.state.statPlays}></TeamStats>
 					</div>
 				);
 
-			case "setup":
+			case 'plays':
 				return(
-					<SetupControls {...this.propsForSetup()}></SetupControls>
+					<PlayByPlay teamNames={this.state.teamNames}
+					plays={this.state.statPlays} pointValues={this.state.pointValues}/>
 				);
 
-			case "plays":
-				return(
-					<PlayByPlay teamNames={this.state.teamNames} plays={this.state.statPlays} pointValues={this.state.pointValues}/>
-				);
-				
 			default:
-			  return "";
+				return '';
 
 		}
 	}
 
 	render(){
-		// break the endgame modal and gamepoint input into their own components eventually
+		// break the endgame modal and gamepoint input into
+		//   their own components eventually
     return(
 			<div>
 
-				<div className={"modal" + (this.winningTeam() && !this.state.endGameAcknowledged ? " is-active": "")}>
-			  	<div className="modal-background"></div>
-				  <div className="modal-content">
-					  <h1>{this.winningTeam()} is the winner</h1>
-				  </div>
-					<button className="modal-close" onClick={this.acknowledgeEnd}></button>
+				<div className={'modal' + (this.winningTeam() &&
+					!this.state.endGameAcknowledged ? ' is-active': '')}>
+				<div className='modal-background'></div>
+				<div className="modal-content">
+					<h1>{this.winningTeam()} is the winner</h1>
 				</div>
-			  <Tabs activeTab={this.state.activeTab} handler={this.handleTab}></Tabs>
-			  { this.tab_content() }
-			  
+					<button className="modal-close"
+					onClick={this.acknowledgeEnd}></button>
+				</div>
+				<Tabs activeTab={this.state.activeTab} handler={this.handleTab}></Tabs>
+				{ this.tabContent() }
 
-				
 			</div>
-		)
+		);
 	}
 
 }
