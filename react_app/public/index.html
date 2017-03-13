@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <!-- Allow everything in development -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src *;
+                 style-src 'self' 'unsafe-inline';
+                 script-src 'self' 'unsafe-inline' 'unsafe-eval'">
     <script src="cordova.js"></script>
     <!--
       Notice the use of %PUBLIC_URL% in the tag above.
@@ -28,5 +33,6 @@
       To begin the development, run `npm start`.
       To create a production bundle, use `npm run build`.
     -->
+    
   </body>
 </html>
