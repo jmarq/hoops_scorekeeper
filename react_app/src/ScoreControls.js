@@ -25,7 +25,7 @@ class ScoreControls extends Component {
 
 	addRebound = (event) =>{
 		let offensiveRebound = this.props.team.index === this.props.needRebound[1];
-		let playType = offensiveRebound ? "offensive rebound" : "defensive rebound";
+		let playType = offensiveRebound ? 'offensive rebound' : 'defensive rebound';
 		this.props.addPlay({
 			team: this.props.team.index, playType: playType,
 		});
@@ -37,7 +37,7 @@ class ScoreControls extends Component {
 		});
 	}
 
-	render(){
+	render() {
 		return(
 			<div className="score-controls">
 				{this.props.needRebound[0] &&

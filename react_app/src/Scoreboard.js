@@ -16,7 +16,7 @@ class ScoreDisplay extends Component{
 }
 
 
-class Scoreboard extends Component{
+class Scoreboard extends Component {
 	render() {
 		return(
 			<div className="scoreboard">
