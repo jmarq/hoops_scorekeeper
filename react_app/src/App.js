@@ -30,6 +30,8 @@ class App extends Component {
 	}
 
 	// for adding to statPlays.
+	// this could be an action, maybe?  it affects two different state variables...
+	//   how would it work with combineReducers syntax?  
 	addPlay = (play) => {
 		let newPlays = [...this.state.statPlays, play];
 		// console.log("in addScoringPlay");
@@ -106,6 +108,10 @@ class App extends Component {
 
 	// several event handlers here that will be passed down as props,
 	// the handlers change the "main" state.
+	// for redux, these should use dispatch functions,
+	//   passed in as props when connect()ing the component
+	//   to update the redux store instead of the local state.
+	//   redux store values will get passed into this component as props
 	changeGamePoint = (ev) => {
 		this.setState({
 			gamePoint: Number(ev.target.value),

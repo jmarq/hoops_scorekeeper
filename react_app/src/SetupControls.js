@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import "./SetupControls.css";
+import './SetupControls.css';
 
+// maybe this could be a container component? why?
+//    to avoid cumbersome passing of props.
+//    wrapper component doesn't need change handlers,
+//    it just has them for the sake of passing them down here
+//   why not?  it doesn't really introduce any further state...
 class SetupControls extends Component{
 	render() {
 		return(
