@@ -14,6 +14,10 @@ class App extends Component {
     super(props);
 		this.state = {
 			statPlays: [],
+			//maybe put these next three items in their own settings container object in the redux store?
+			//	what kind of actions?  generic actions that have a key and a value? 
+			//	specific actions for each nested value?  changeTeam2?  changeTeam(2,val)? changeSetting("teamNames.2", val)
+			//    changeSetting("teamNames", [])
 			gamePoint: 15,
 			pointValues: {'two': 1, 'three': 2},
 			teamNames: ['Team 1', 'Team 2'],
