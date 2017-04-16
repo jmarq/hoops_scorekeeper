@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import 'bulma/css/bulma.css';
 import './App.css';
 
-import ScoreControls from './ScoreControls';
-import Scoreboard from './Scoreboard';
-import PlayByPlay from './PlayByPlay';
-import TeamStats from './TeamStats.js';
-import Tabs from './Tabs.js';
-import SetupControls from './SetupControls.js';
+import ScoreControls from '../ScoreControls/ScoreControls';
+import Scoreboard from '../Scoreboard/Scoreboard';
+import PlayByPlay from '../PlayByPlay/PlayByPlay';
+import TeamStats from '../TeamStats/TeamStats.js';
+import Tabs from '../Tabs/Tabs.js';
+import SetupControls from '../SetupControls/SetupControls.js';
 
 class App extends Component {
 	constructor(props) {
