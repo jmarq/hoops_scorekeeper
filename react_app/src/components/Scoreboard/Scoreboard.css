@@ -10,21 +10,25 @@
   padding-right: 0px;
   text-align: right;
   float: left; }
-  .score-display:nth-child(3) {
-    text-align: left;
-    padding-left: 0px;
-    padding-right: 20px; }
-    .score-display:nth-child(3) h1, .score-display:nth-child(3) h2 {
-      padding-left: 30px; }
-  .score-display h1 {
-    font-size: 60px;
-    margin: 0px;
-    padding-right: 30px; }
-  .score-display h2 {
-    padding-right: 30px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; }
+
+.score-display:nth-child(3) {
+  text-align: left;
+  padding-left: 0px;
+  padding-right: 20px; }
+
+.score-display:nth-child(3) h1, .score-display:nth-child(3) h2 {
+  padding-left: 30px; }
+
+.score-display h1 {
+  font-size: 60px;
+  margin: 0px;
+  padding-right: 30px; }
+
+.score-display h2 {
+  padding-right: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
 
 progress[value]::-webkit-progress-value {
   background-color: #fa0; }
@@ -49,7 +53,11 @@ div.undo-wrap {
   color: white;
   border-radius: 8px;
   background-color: red; }
-  .undo-wrap button:hover {
-    background-color: #cc0000; }
-  .undo-wrap button:active {
+
+.undo-wrap button:hover {
+  background-color: #cc0000; }
+
+.undo-wrap button:active {
+  background-color: #660000; }
+ {
     background-color: #660000; }
