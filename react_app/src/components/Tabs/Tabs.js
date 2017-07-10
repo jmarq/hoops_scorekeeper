@@ -5,7 +5,8 @@ class Tabs extends Component {
 	tabClass = (name) => {
 		return ''+ (this.props.activeTab === name ? ' is-active' : '');
 	}
-
+	// what about making this component able to take a list of tab labels/classes and dynamically generating the ul>li>a markup?
+	//   aka making this thing re-usable
 	render() {
 		return(
 			<div className="tabs is-large">
