@@ -36,6 +36,18 @@ export function resetGame() {
 	};
 }
 
+export function acknowledgeEndGame() {
+	return {
+		type: 'ACKNOWLEDGE_ENDGAME',
+	}
+}
+
+export function resetEndGame(){
+	return {
+		type: 'RESET_ENDGAME',
+	}
+}
+
 // change tab?
 
 // acknowledge endgame?

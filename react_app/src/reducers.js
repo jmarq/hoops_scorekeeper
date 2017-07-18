@@ -33,8 +33,28 @@ export function settingsReducer(state=defaultSettings, action) {
 	}
 }
 
+export function endGameReducer(state=false, action) {
+	switch(action.type) {
+		case 'ACKNOWLEDGE_ENDGAME':
+			return true;
+		case 'RESET_ENDGAME':
+			return false;
+		case 'RESET_GAME':
+			return false;
+		case 'UPDATE_SETTINGS':
+			return false;
+		case 'RESET_SETTINGS':
+			return false;
+		case 'UNDO_PLAY':
+			return false;
+		default:
+			return state;
+	}
+}
+
 export const rootReducer = combineReducers({
 	plays: playsReducer,
 	settings: settingsReducer,
+	endGameAcknowledged: endGameReducer,
 	form: formReducer,
 });

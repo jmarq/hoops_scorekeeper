@@ -3,7 +3,7 @@ import 'bulma/css/bulma.css';
 import './App.css';
 
 import {connect} from 'react-redux';
-import {addPlay, undoPlay, resetGame, resetSettings, updateSettings} from '../../actions.js'
+import {addPlay, undoPlay, resetGame, resetSettings, updateSettings, acknowledgeEndGame, resetEndGame} from '../../actions.js'
 
 import ScoreControls from '../ScoreControls/ScoreControls';
 import Scoreboard from '../Scoreboard/Scoreboard';
@@ -21,18 +21,12 @@ class App extends Component {
 		super(props);
 		console.log(props.settings);
 		this.state = {
-			endGameAcknowledged: false,
 			activeTab: 'setup',
 		};
 	}
 
 	handleTab = (ev) => {
 		this.setState({activeTab: ev.target.getAttribute('data-tab')});
-	}
-
-	// user has closed the "winner" modal.
-	acknowledgeEnd = () => {
-		this.setState({endGameAcknowledged: true});
 	}
 
 
@@ -105,9 +99,6 @@ class App extends Component {
 	reset = (ev) => {
 		if(confirm('Are you sure you want to reset the game?')) {
 			this.props.actions.reset();
-			this.setState({
-				endGameAcknowledged: false,
-			});
 		}
 	}
 
@@ -135,6 +126,7 @@ class App extends Component {
 						<ReduxSetupControls
 						onSubmit={this.reduxSettingsSubmit}
 						defaultSettings={this.props.actions.resetSettings}
+						resetGame={this.props.actions.resetGame}
 						initialValues={{
 							team1Name: this.props.settings.teamNames[0],
 							team2Name: this.props.settings.teamNames[1],
@@ -204,13 +196,13 @@ class App extends Component {
 			<div>
 
 				<div className={'modal' + (this.winningTeam() &&
-					!this.state.endGameAcknowledged ? ' is-active': '')}>
+					!this.props.endGameAcknowledged ? ' is-active': '')}>
 					<div className='modal-background'></div>
 					<div className="modal-content">
 						<h1>{this.winningTeam()} is the winner</h1>
 					</div>
 					<button className="modal-close"
-					onClick={this.acknowledgeEnd}></button>
+					onClick={this.props.actions.acknowledgeEndGame}></button>
 				</div>
 				<Tabs activeTab={this.state.activeTab} handler={this.handleTab}></Tabs>
 				{ this.tabContent() }
@@ -226,6 +218,7 @@ function mapStateToProps(state,ownProps) {
 	return {
 		settings: state.settings,
 		statPlays: state.plays,
+		endGameAcknowledged: state.endGameAcknowledged,
 	};
 }
 
@@ -253,8 +246,10 @@ function mapDispatchToProps(dispatch) {
 							gamePoint: defaultSettings.gamePoint,
 							twosWorth: defaultSettings.pointValues.two,
 							threesWorth: defaultSettings.pointValues.three,
-						
 				}));
+			},
+			acknowledgeEndGame: () => {
+				dispatch(acknowledgeEndGame());
 			},
 		},
 	};
