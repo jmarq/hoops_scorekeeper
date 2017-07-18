@@ -22,7 +22,6 @@ export let defaultSettings = {
 };
 
 export function settingsReducer(state=defaultSettings, action) {
-	console.log("settings reducer")
 	switch(action.type) {
 		case 'UPDATE_SETTINGS':
 			return Object.assign({}, action.settingsObject);

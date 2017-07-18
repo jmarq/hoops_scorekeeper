@@ -8,7 +8,14 @@ import './SetupControls.css';
 //    it just has them for the sake of passing them down here
 //   why not?  it doesn't really introduce any further state...
 const SetupControls = props => {
-	const {handleSubmit, pristine, reset, submitting, defaultSettings, resetGame} = props;
+	const {
+		handleSubmit,
+		pristine,
+		reset,
+		submitting,
+		defaultSettings,
+		resetGame,
+	} = props;
 	return(
 		<div className="setup-controls">
 			<form onSubmit={handleSubmit}>
@@ -78,11 +85,14 @@ const SetupControls = props => {
 					</div>
 				</div>
 				<div>
-					<button className="button" type="submit" disabled={submitting}>Submit</button>
-					<button className="button" type="button" disabled={submitting} onClick={defaultSettings}>
+					<button className="button" type="submit" 
+					disabled={submitting}>Submit</button>
+					<button className="button" type="button"
+					disabled={submitting} onClick={defaultSettings}>
 						Default Settings
 					</button>
-					<button className="button" type="button" onClick={resetGame}>Reset Game</button>
+					<button className="button" type="button"
+					onClick={resetGame}>Reset Game</button>
 				</div>
 			</form>
 		</div>
@@ -90,6 +100,6 @@ const SetupControls = props => {
 };
 
 export default reduxForm({
-	form: "setupControls",
-	destroyOnUnmount: false
+	form: 'setupControls',
+	destroyOnUnmount: false,
 })(SetupControls);

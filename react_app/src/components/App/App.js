@@ -238,8 +238,7 @@ function mapDispatchToProps(dispatch) {
 				dispatch(updateSettings(settingsObject));
 			},
 			resetSettings: () => {
-				//dispatch(resetSettings());
-				dispatch(initialize("setupControls",{
+				dispatch(initialize('setupControls', {
 
 							team1Name: defaultSettings.teamNames[0],
 							team2Name: defaultSettings.teamNames[1],
