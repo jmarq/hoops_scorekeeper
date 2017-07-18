@@ -26,6 +26,10 @@ class App extends Component {
 		};
 	}
 
+	handleTab = (ev) => {
+		this.setState({activeTab: ev.target.getAttribute('data-tab')});
+	}
+
 	// user has closed the "winner" modal.
 	acknowledgeEnd = () => {
 		this.setState({endGameAcknowledged: true});
@@ -139,7 +143,6 @@ class App extends Component {
 							threesWorth: this.props.settings.pointValues.three,
 						}}
 						/>
-						{this.props.settings.pointValues.three}
 					</div>
 				);
 
