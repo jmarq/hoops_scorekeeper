@@ -3,7 +3,6 @@ import 'bulma/css/bulma.css';
 import './App.css';
 
 import {connect} from 'react-redux';
-import {addPlay, undoPlay, resetGame, resetSettings, updateSettings, acknowledgeEndGame, resetEndGame, changeTab} from '../../actions.js'
 
 import ScoreControls from '../ScoreControls/ScoreControls';
 import Scoreboard from '../Scoreboard/Scoreboard';
@@ -12,7 +11,12 @@ import TeamStats from '../TeamStats/TeamStats.js';
 import Tabs from '../Tabs/Tabs.js';
 import SetupControls from '../SetupControls/SetupControls.js';
 import ReduxSetupControls from '../SetupControls/ReduxSetupControls.js';
+
 import {defaultSettings} from '../../reducers';
+import {
+			addPlay, undoPlay, resetGame, resetSettings,
+			updateSettings, acknowledgeEndGame, resetEndGame, changeTab,
+		} from '../../actions.js';
 import {initialize} from 'redux-form';
 
 export class App extends Component {
@@ -65,7 +69,9 @@ export class App extends Component {
 			return b.score - a.score;
 		}); // descending sort
 		// console.log(sortedScores);
-		if(  this.props.settings.winByTwo ? (sortedScores[0].score - sortedScores[1].score >=2) : (sortedScores[0].score > sortedScores[1].score)  &&
+		if( this.props.settings.winByTwo ?
+			(sortedScores[0].score - sortedScores[1].score >=2) :
+			(sortedScores[0].score > sortedScores[1].score) &&
 			sortedScores[0].score >= this.props.settings.gamePoint) {
 			// console.log("WINNER");
 			return sortedScores[0].name;
@@ -252,7 +258,7 @@ function mapDispatchToProps(dispatch) {
 			},
 			changeTab: (tabName) => {
 				dispatch(changeTab(tabName));
-			}
+			},
 		},
 	};
 }
