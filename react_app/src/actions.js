@@ -48,6 +48,13 @@ export function resetEndGame(){
 	}
 }
 
+export function changeTab(tabName){
+	return {
+		type: 'CHANGE_TAB',
+		targetTab: tabName,
+	}
+}
+
 // change tab?
 
 // acknowledge endgame?

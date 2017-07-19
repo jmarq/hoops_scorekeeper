@@ -3,7 +3,7 @@ import 'bulma/css/bulma.css';
 import './App.css';
 
 import {connect} from 'react-redux';
-import {addPlay, undoPlay, resetGame, resetSettings, updateSettings, acknowledgeEndGame, resetEndGame} from '../../actions.js'
+import {addPlay, undoPlay, resetGame, resetSettings, updateSettings, acknowledgeEndGame, resetEndGame, changeTab} from '../../actions.js'
 
 import ScoreControls from '../ScoreControls/ScoreControls';
 import Scoreboard from '../Scoreboard/Scoreboard';
@@ -15,7 +15,7 @@ import ReduxSetupControls from '../SetupControls/ReduxSetupControls.js';
 import {defaultSettings} from '../../reducers';
 import {initialize} from 'redux-form';
 
-class App extends Component {
+export class App extends Component {
 
 	constructor(props) {
 		super(props);
@@ -26,7 +26,7 @@ class App extends Component {
 	}
 
 	handleTab = (ev) => {
-		this.setState({activeTab: ev.target.getAttribute('data-tab')});
+		this.props.actions.changeTab(ev.target.getAttribute('data-tab'));
 	}
 
 
@@ -68,7 +68,7 @@ class App extends Component {
 			return b.score - a.score;
 		}); // descending sort
 		// console.log(sortedScores);
-		if(sortedScores[0].score - sortedScores[1].score >=2 &&
+		if(  this.props.settings.winByTwo ? (sortedScores[0].score - sortedScores[1].score >=2) : (sortedScores[0].score > sortedScores[1].score)  &&
 			sortedScores[0].score >= this.props.settings.gamePoint) {
 			// console.log("WINNER");
 			return sortedScores[0].name;
@@ -108,6 +108,7 @@ class App extends Component {
 			gamePoint: values.gamePoint,
 			teamNames: [values.team1Name, values.team2Name],
 			pointValues: {two: values.twosWorth, three: values.threesWorth},
+			winByTwo: values.winByTwo,
 		};
 		this.props.actions.updateSettings(settingsObject);
 	}
@@ -118,7 +119,7 @@ class App extends Component {
 	//   consider how to address this.
 	// maybe there should be a wrapper component for each switch case?
 	tabContent = () => {
-		switch(this.state.activeTab) {
+		switch(this.props.activeTab) {
 
 			case 'setup':
 				return(
@@ -204,7 +205,7 @@ class App extends Component {
 					<button className="modal-close"
 					onClick={this.props.actions.acknowledgeEndGame}></button>
 				</div>
-				<Tabs activeTab={this.state.activeTab} handler={this.handleTab}></Tabs>
+				<Tabs activeTab={this.props.activeTab} handler={this.handleTab}></Tabs>
 				{ this.tabContent() }
 
 			</div>
@@ -219,6 +220,7 @@ function mapStateToProps(state,ownProps) {
 		settings: state.settings,
 		statPlays: state.plays,
 		endGameAcknowledged: state.endGameAcknowledged,
+		activeTab: state.activeTab,
 	};
 }
 
@@ -245,11 +247,15 @@ function mapDispatchToProps(dispatch) {
 							gamePoint: defaultSettings.gamePoint,
 							twosWorth: defaultSettings.pointValues.two,
 							threesWorth: defaultSettings.pointValues.three,
+							winByTwo: defaultSettings.winByTwo,
 				}));
 			},
 			acknowledgeEndGame: () => {
 				dispatch(acknowledgeEndGame());
 			},
+			changeTab: (tabName) => {
+				dispatch(changeTab(tabName));
+			}
 		},
 	};
 }

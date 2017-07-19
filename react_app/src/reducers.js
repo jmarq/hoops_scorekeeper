@@ -19,6 +19,7 @@ export let defaultSettings = {
 	gamePoint: 15,
 	pointValues: {'two': 1, 'three': 2},
 	teamNames: ['Shirts', 'Skins'],
+	winByTwo: true,
 };
 
 export function settingsReducer(state=defaultSettings, action) {
@@ -51,9 +52,19 @@ export function endGameReducer(state=false, action) {
 	}
 }
 
+export function tabReducer(state="setup", action) {
+	switch(action.type) {
+		case 'CHANGE_TAB':
+			return action.targetTab;
+		default:
+			return state;
+	}
+}
+
 export const rootReducer = combineReducers({
 	plays: playsReducer,
 	settings: settingsReducer,
 	endGameAcknowledged: endGameReducer,
+	activeTab: tabReducer,
 	form: formReducer,
 });

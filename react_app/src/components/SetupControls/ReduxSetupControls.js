@@ -84,6 +84,17 @@ const SetupControls = props => {
 						/>
 					</div>
 				</div>
+				<div className="control">
+					<label className="label checkbox" htmlFor="winByTwo">Win By Two</label>
+					<div>
+						<Field
+						name="winByTwo"
+						id="winByTwo"
+						component="input"
+						type="checkbox"
+						/>
+					</div>
+				</div>
 				<div>
 					<button className="button" type="submit" 
 					disabled={submitting}>Submit</button>
