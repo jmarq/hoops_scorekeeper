@@ -20,9 +20,6 @@ export class App extends Component {
 	constructor(props) {
 		super(props);
 		console.log(props.settings);
-		this.state = {
-			activeTab: 'setup',
-		};
 	}
 
 	handleTab = (ev) => {
