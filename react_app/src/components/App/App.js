@@ -69,10 +69,11 @@ export class App extends Component {
 			return b.score - a.score;
 		}); // descending sort
 		// console.log(sortedScores);
-		if( this.props.settings.winByTwo ?
+		let differenceThreshold = this.props.settings.winByTwo ?
 			(sortedScores[0].score - sortedScores[1].score >=2) :
-			(sortedScores[0].score > sortedScores[1].score) &&
-			sortedScores[0].score >= this.props.settings.gamePoint) {
+			(sortedScores[0].score > sortedScores[1].score);
+		//console.log(differenceThreshold);
+		if(sortedScores[0].score >= this.props.settings.gamePoint && differenceThreshold) {
 			// console.log("WINNER");
 			return sortedScores[0].name;
 		}else{
@@ -137,6 +138,7 @@ export class App extends Component {
 							gamePoint: this.props.settings.gamePoint,
 							twosWorth: this.props.settings.pointValues.two,
 							threesWorth: this.props.settings.pointValues.three,
+							winByTwo: this.props.settings.winByTwo,
 						}}
 						/>
 					</div>
