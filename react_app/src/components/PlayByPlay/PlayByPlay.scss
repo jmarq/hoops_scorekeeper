@@ -5,12 +5,12 @@
 	width: 40%;
 	min-width: 300px;
 	clear: both;
-  	margin: auto;
-  	.play-by-play-list{
-  		border: $debugBorder;
-  		height: 400px;
-		overflow-y: scroll;
-  	}
+  margin: auto;
+  .play-by-play-list{
+  	border: $debugBorder;
+  	height: 400px;
+		overflow-y: auto;
+  }
 	.play{
 		text-align: left;
 		border-bottom: 1px solid lighten($mainBG, 10%);
