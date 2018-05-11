@@ -135,9 +135,9 @@ export class App extends Component {
 						initialValues={{
 							team1Name: this.props.settings.teamNames[0],
 							team2Name: this.props.settings.teamNames[1],
-							gamePoint: this.props.settings.gamePoint,
-							twosWorth: this.props.settings.pointValues.two,
-							threesWorth: this.props.settings.pointValues.three,
+							gamePoint: ""+this.props.settings.gamePoint,
+							twosWorth: ""+this.props.settings.pointValues.two,
+							threesWorth: ""+this.props.settings.pointValues.three,
 							winByTwo: this.props.settings.winByTwo,
 						}}
 						/>

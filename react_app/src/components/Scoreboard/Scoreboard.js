@@ -23,6 +23,7 @@ class Scoreboard extends Component {
 				<ScoreDisplay
 				gamepoint={this.props.gamepoint} team={this.props.teams[0]}/>
 				<div className="undo-wrap">
+				  <p>game to {this.props.gamepoint}</p>
 					<button onClick={this.props.undo}>undo</button>
 				</div>
 				<ScoreDisplay

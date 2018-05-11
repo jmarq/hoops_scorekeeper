@@ -8,4 +8,31 @@
 	max-width: 300px;
 	margin-left: auto;
 	margin-right: auto;
+  button{
+    font-size: 2em;
+    margin: 0;
+    display: block;
+    width: 100%;
+  }
+  .default-reset{
+    display: flex;
+    flex-direction: row;
+    button{
+      font-size: 1em;
+      line-height: 2em;
+      font-weight: bold;
+      margin: 5px;
+    }
+  }
+  .settings-warning{
+    visibility: hidden;
+    &.shown{
+      visibility: visible;
+    }
+  }
+
+  input[type=checkbox]{
+    transform: scale(2.0,2.0);
+    margin: 5px;
+  }
 }

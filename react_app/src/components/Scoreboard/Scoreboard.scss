@@ -24,9 +24,11 @@
 		}
 	}
 	h1{
-		font-size: 90px;
+		font-size: 75px;
+		font-family: "Bowlby One SC", sans-serif;
 		margin: 0px;
 		padding-right: 30px;
+		line-height: 1em;
 	}
 	h2{
 		padding-right: 30px;
@@ -39,10 +41,12 @@
 //progress bar styles. need to test on edge.
 $progressColor: #fa0;
 progress[value]::-webkit-progress-value {
+	transition: 250ms linear;
   background-color: $progressColor;
 }
 
 progress[value]::-moz-progress-bar {
+	transition: 250ms linear;
   background-color: $progressColor;
 }
 
@@ -72,3 +76,7 @@ div.undo-wrap{
 			background-color: darken(red, 30%);
 		}
 	}
+
+  .score-tab-last-play{
+  	clear: both;
+  }

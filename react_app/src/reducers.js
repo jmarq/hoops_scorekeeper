@@ -15,12 +15,14 @@ export function playsReducer(state=[], action) {
 	}
 }
 
+// maybe get defaultSettings from localstorage?
 export let defaultSettings = {
 	gamePoint: 15,
 	pointValues: {'two': 1, 'three': 2},
 	teamNames: ['Shirts', 'Skins'],
 	winByTwo: true,
 };
+
 
 export function settingsReducer(state=defaultSettings, action) {
 	switch(action.type) {

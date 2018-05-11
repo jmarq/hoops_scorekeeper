@@ -2,6 +2,33 @@
   max-width: 300px;
   margin-left: auto;
   margin-right: auto; }
-  .setup-controls label.label {
-    text-align: left;
-    color: #efc; }
+
+.setup-controls label.label {
+  text-align: left;
+  color: #efc; }
+
+.setup-controls button {
+  font-size: 2em;
+  margin: 0;
+  display: block;
+  width: 100%; }
+
+.setup-controls .default-reset {
+  display: flex;
+  flex-direction: row; }
+
+.setup-controls .default-reset button {
+  font-size: 1em;
+  line-height: 2em;
+  font-weight: bold;
+  margin: 5px; }
+
+.setup-controls .settings-warning {
+  visibility: hidden; }
+
+.setup-controls .settings-warning.shown {
+  visibility: visible; }
+
+.setup-controls input[type=checkbox] {
+  transform: scale(2, 2);
+  margin: 5px; }

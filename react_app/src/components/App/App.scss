@@ -2,9 +2,51 @@
 
 html{
   background-color: $mainBG;
+  min-height: 100vh;
+  background-image: url(https://www.colourbox.com/preview/3360758-orange-basketball-texture-close-up.jpg), linear-gradient(to bottom, $mainBG 0%,  #001 50%, #00a 100%);
+  background-size: cover;
+  background-attachment: fixed;
+  background-blend-mode: hue, normal;
 }
 body{
 	color: $mainFG;
 	text-align: center;
+  min-height: 100vh;
 }
 
+button{
+    transition: 125ms linear;
+    display: inline-block;
+    margin: 7px;
+    padding: 7px;
+    font-size: 36px;
+    background-color: #086;
+    color: white;
+    border-radius: 8px;
+    &[disabled]{
+      background-color: #333;
+      color: #888;
+      &:hover{
+        background-color: #333;
+      }
+    }
+    &:hover{
+      background-color: #297;
+    }
+    &:active{
+      background-color: #068;
+    }
+    &.rebound-button{
+      font-size: 24px;
+    }
+    &.bad-play{
+      $badPlayColor: #a40;
+      background-color: $badPlayColor;
+      &:hover{
+        background-color: darken($badPlayColor, 10%);
+      }
+      &:active{
+        background-color: darken($badPlayColor, 30%);
+      }
+    }
+  }

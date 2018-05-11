@@ -59,6 +59,17 @@ const SetupControls = props => {
 					</div>
 				</div>
 				<div className="control">
+					<label className="label checkbox" htmlFor="winByTwo">Win By Two</label>
+					<div>
+						<Field
+						name="winByTwo"
+						id="winByTwo"
+						component="input"
+						type="checkbox"
+						/>
+					</div>
+				</div>
+				<div className="control">
 					<label htmlFor="twosWorth" className="label">Twos Worth</label>
 					<div>
 						<Field
@@ -84,26 +95,18 @@ const SetupControls = props => {
 						/>
 					</div>
 				</div>
-				<div className="control">
-					<label className="label checkbox" htmlFor="winByTwo">Win By Two</label>
-					<div>
-						<Field
-						name="winByTwo"
-						id="winByTwo"
-						component="input"
-						type="checkbox"
-						/>
-					</div>
-				</div>
 				<div>
-					<button className="button" type="submit" 
-					disabled={submitting}>Submit</button>
-					<button className="button" type="button"
-					disabled={submitting} onClick={defaultSettings}>
-						Default Settings
-					</button>
-					<button className="button" type="button"
-					onClick={resetGame}>Reset Game</button>
+					<button type="submit"
+					disabled={submitting || pristine}>Submit</button>
+				  <p className={"settings-warning" + (pristine ? "" : " shown" )}>new settings won't take effect until submitted</p>
+				  <div className="default-reset">
+						<button type="button" className="bad-play"
+						disabled={submitting} onClick={defaultSettings}>
+							Default Settings
+						</button>
+						<button type="button" className="bad-play"
+						onClick={resetGame}>Reset Game</button>
+					</div>
 				</div>
 			</form>
 		</div>

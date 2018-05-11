@@ -12,6 +12,7 @@ div.team-stats{
 	float: left;
 	table{
 	  background-color: lighten($mainBG, 10%);
+	  background-color: rgba(0,0,0,0.2);
 	  color: darken($mainFG, 7%);
 	  td{
 	  	border-bottom-color: $mainBG;
