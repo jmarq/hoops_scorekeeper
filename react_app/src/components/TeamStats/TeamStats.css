@@ -5,24 +5,18 @@ div.team-stats {
   width: 50%;
   padding: 2px;
   float: left; }
-
-div.team-stats table {
-  background-color: #3c3c3c;
-  background-color: rgba(0, 0, 0, 0.2);
-  color: #e2ffa8; }
-
-div.team-stats table td {
-  border-bottom-color: #222; }
-
-div.team-stats table tr:hover {
-  background-color: #222; }
-
-div.team-stats h1 {
-  color: #eee;
-  font-weight: bold; }
-
-div.team-stats.team0 h1 {
-  text-shadow: 0px 0px 5px #f30; }
-
-div.team-stats.team1 h1 {
-  text-shadow: 0px 0px 5px #03f; }
+  div.team-stats table {
+    background-color: #3c3c3c;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #e2ffa8; }
+    div.team-stats table td {
+      border-bottom-color: #222; }
+    div.team-stats table tr:hover {
+      background-color: #222; }
+  div.team-stats h1 {
+    color: #eee;
+    font-weight: bold; }
+  div.team-stats.team0 h1 {
+    text-shadow: 0px 0px 5px #f30; }
+  div.team-stats.team1 h1 {
+    text-shadow: 0px 0px 5px #03f; }

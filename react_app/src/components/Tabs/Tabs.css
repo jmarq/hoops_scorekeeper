@@ -4,10 +4,9 @@ div.tabs.is-large {
 .tabs a {
   color: #efc;
   padding: 10px; }
-
-.tabs a:hover {
-  color: #efc;
-  border-bottom: 1px solid #dbdbdb; }
+  .tabs a:hover {
+    color: #efc;
+    border-bottom: 1px solid #dbdbdb; }
 
 .tabs ul li {
   flex-grow: 1; }

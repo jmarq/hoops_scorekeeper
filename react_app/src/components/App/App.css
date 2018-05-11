@@ -22,28 +22,20 @@ button {
   background-color: #086;
   color: white;
   border-radius: 8px; }
-
-button[disabled] {
-  background-color: #333;
-  color: #888; }
-
-button[disabled]:hover {
-  background-color: #333; }
-
-button:hover {
-  background-color: #297; }
-
-button:active {
-  background-color: #068; }
-
-button.rebound-button {
-  font-size: 24px; }
-
-button.bad-play {
-  background-color: #a40; }
-
-button.bad-play:hover {
-  background-color: #773000; }
-
-button.bad-play:active {
-  background-color: #110700; }
+  button[disabled] {
+    background-color: #333;
+    color: #888; }
+    button[disabled]:hover {
+      background-color: #333; }
+  button:hover {
+    background-color: #297; }
+  button:active {
+    background-color: #068; }
+  button.rebound-button {
+    font-size: 24px; }
+  button.bad-play {
+    background-color: #a40; }
+    button.bad-play:hover {
+      background-color: #773000; }
+    button.bad-play:active {
+      background-color: #110700; }
