@@ -4,9 +4,11 @@ html{
   background-color: $mainBG;
   min-height: 100vh;
   background-image: url(https://www.colourbox.com/preview/3360758-orange-basketball-texture-close-up.jpg), linear-gradient(to bottom, $mainBG 0%,  #001 50%, #00a 100%);
-  background-size: cover;
+  background-size: cover, cover;
+  background-position: 0 0;
   background-attachment: fixed;
   background-blend-mode: hue, normal;
+  background-repeat: no-repeat;
 }
 body{
 	color: $mainFG;

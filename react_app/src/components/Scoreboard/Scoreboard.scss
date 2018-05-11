@@ -18,37 +18,81 @@
 		text-align: left;
 		padding-left: 0px;
 		padding-right: 20px;
-		h1, h2{
-			padding-left: 30px;
+		h1{
+			//padding-left: 30px;
 			padding-right: 0px
+		}
+		h2{
+			padding-left:30px;
 		}
 	}
 	h1{
 		font-size: 75px;
 		font-family: "Bowlby One SC", sans-serif;
 		margin: 0px;
-		padding-right: 30px;
+		//padding-right: 30px;
 		line-height: 1em;
+		color: #eee;
 	}
 	h2{
+		color: #eee;
 		padding-right: 30px;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		font-weight: bold;
+	}
+}
+
+//first team specific
+.score-display.team0{
+	//color: red;
+  h1{
+		text-shadow: 0px 0px 45px $team0Color;
+	}
+	h2{
+		text-shadow: 0px 0px 10px $team0Color;
+	}
+	progress[value]::-webkit-progress-value {
+		transition: 250ms linear;
+	  background-color: $team0Color;
+	}
+
+	progress[value]::-moz-progress-bar {
+		transition: 250ms linear;
+	  background-color: $team0Color;
+	}
+}
+//second team specific
+.score-display.team1{
+  h1{
+		text-shadow: 0px 0px 45px $team1Color;
+  }
+  h2{
+		text-shadow: 0px 0px 10px $team1Color;
+	}
+  progress[value]::-webkit-progress-value {
+		transition: 250ms linear;
+	  background-color: $team1Color;
+	}
+
+	progress[value]::-moz-progress-bar {
+		transition: 250ms linear;
+	  background-color: $team1Color;
 	}
 }
 
 //progress bar styles. need to test on edge.
-$progressColor: #fa0;
-progress[value]::-webkit-progress-value {
-	transition: 250ms linear;
-  background-color: $progressColor;
-}
+// $progressColor: #fa0;
+// progress[value]::-webkit-progress-value {
+// 	transition: 250ms linear;
+//   background-color: $progressColor;
+// }
 
-progress[value]::-moz-progress-bar {
-	transition: 250ms linear;
-  background-color: $progressColor;
-}
+// progress[value]::-moz-progress-bar {
+// 	transition: 250ms linear;
+//   background-color: $progressColor;
+// }
 
 div.undo-wrap{
 	box-sizing: border-box;

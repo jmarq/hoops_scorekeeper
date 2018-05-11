@@ -4,9 +4,9 @@ import './Scoreboard.css';
 class ScoreDisplay extends Component{
 	render() {
 		return(
-			<div className="score-display">
+			<div className={"score-display team"+this.props.team.index}>
 				<h2>{this.props.team.name}</h2>
-				<h1>{this.props.team.score}</h1>
+				<h1>{((""+this.props.team.score).length<2 ? "0" : "")+this.props.team.score}</h1>
 				<progress className="progress"
 				value={this.props.team.score} max={this.props.gamepoint}>
 				</progress>

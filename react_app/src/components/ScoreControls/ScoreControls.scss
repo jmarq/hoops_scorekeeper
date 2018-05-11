@@ -32,6 +32,7 @@
 		}
 		&.rebound-button{
 			font-size: 24px;
+			line-height: 4em;
 		}
 		&.bad-play{
 			$badPlayColor: #a40;
@@ -44,4 +45,5 @@
 			}
 		}
 	}
+	margin-bottom: 2em;
 }

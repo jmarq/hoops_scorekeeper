@@ -75,7 +75,7 @@ class TeamStats extends Component{
 
 	render() {
 		return(
-			<div className="team-stats">
+			<div className={"team-stats team"+this.props.team.index}>
 				<h1>{this.props.team.name}</h1>
 				<table className="table">
 					<tbody>

@@ -57,7 +57,7 @@ export class App extends Component {
 		let totalScore = teamScoringPlays.reduce(function(prev, val) {
 			return prev + Number(pointValues[val.points]);
 		}, 0);
-		return {name: this.props.settings.teamNames[teamIndex], score: totalScore};
+		return {index: teamIndex, name: this.props.settings.teamNames[teamIndex], score: totalScore};
 	}
 
 	// look at team scores and game point to see if anyone has won yet.
@@ -109,9 +109,9 @@ export class App extends Component {
 // submit handler for the settings form
 	reduxSettingsSubmit = (values) => {
 		let settingsObject = {
-			gamePoint: values.gamePoint,
+			gamePoint: Number(values.gamePoint),
 			teamNames: [values.team1Name, values.team2Name],
-			pointValues: {two: values.twosWorth, three: values.threesWorth},
+			pointValues: {two: Number(values.twosWorth), three: Number(values.threesWorth)},
 			winByTwo: values.winByTwo,
 		};
 		this.props.actions.updateSettings(settingsObject);
@@ -132,6 +132,7 @@ export class App extends Component {
 						onSubmit={this.reduxSettingsSubmit}
 						defaultSettings={this.props.actions.resetSettings}
 						resetGame={this.props.actions.resetGame}
+						extra={this.props.settings}
 						initialValues={{
 							team1Name: this.props.settings.teamNames[0],
 							team2Name: this.props.settings.teamNames[1],
@@ -249,9 +250,9 @@ function mapDispatchToProps(dispatch) {
 
 							team1Name: defaultSettings.teamNames[0],
 							team2Name: defaultSettings.teamNames[1],
-							gamePoint: defaultSettings.gamePoint,
-							twosWorth: defaultSettings.pointValues.two,
-							threesWorth: defaultSettings.pointValues.three,
+							gamePoint: ""+defaultSettings.gamePoint,
+							twosWorth: ""+defaultSettings.pointValues.two,
+							threesWorth: ""+defaultSettings.pointValues.three,
 							winByTwo: defaultSettings.winByTwo,
 				}));
 			},

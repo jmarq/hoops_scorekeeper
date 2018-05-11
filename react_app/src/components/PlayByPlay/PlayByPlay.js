@@ -11,7 +11,7 @@ class PlayByPlay extends Component {
 			return this.props.plays.map(function(d, i) {
 				return <div className={'play ' +(i===numPlays-1 && 'last-play')}
 						key={i}>
-							{teamNames[d.team]} - {d.playType} {pointValues[d.points]}
+							<span className={"team-name team"+d.team}>{teamNames[d.team]}</span> - {d.playType} {pointValues[d.points]}
 						</div>;
 			});
 		}else{

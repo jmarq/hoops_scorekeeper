@@ -4,12 +4,14 @@
 	label.label{
 		text-align: left;
 		color: $mainFG;
+    margin-bottom: 2px;
 	}
 	max-width: 300px;
 	margin-left: auto;
 	margin-right: auto;
+ 
   button{
-    font-size: 2em;
+    font-size: 1.5em;
     margin: 0;
     display: block;
     width: 100%;
@@ -19,7 +21,7 @@
     flex-direction: row;
     button{
       font-size: 1em;
-      line-height: 2em;
+      line-height: 1.5em;
       font-weight: bold;
       margin: 5px;
     }
@@ -31,8 +33,29 @@
     }
   }
 
+  input{
+    background-color: #222;
+    color: $mainFG;
+    border: 1px solid #444;
+    font-weight: bold;
+    &:focus{
+      color: #eee;
+    }
+  }
+
+
   input[type=checkbox]{
     transform: scale(2.0,2.0);
     margin: 5px;
+  }
+
+  label[for$=Name]{
+    color: #eee;
+  }
+  label[for=team1Name]{
+    text-shadow: 0px 0px 10px $team0Color;
+  }
+  label[for=team2Name]{
+    text-shadow: 0px 0px 10px $team1Color;
   }
 }

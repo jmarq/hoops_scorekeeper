@@ -16,6 +16,9 @@ const SetupControls = props => {
 		defaultSettings,
 		resetGame,
 	} = props;
+	console.log(props.initialValues);
+	console.log(pristine);
+	console.log(props);
 	return(
 		<div className="setup-controls">
 			<form onSubmit={handleSubmit}>
