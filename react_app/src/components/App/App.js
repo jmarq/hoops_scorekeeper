@@ -57,7 +57,11 @@ export class App extends Component {
 		let totalScore = teamScoringPlays.reduce(function(prev, val) {
 			return prev + Number(pointValues[val.points]);
 		}, 0);
-		return {index: teamIndex, name: this.props.settings.teamNames[teamIndex], score: totalScore};
+		return {
+			index: teamIndex,
+			name: this.props.settings.teamNames[teamIndex],
+			score: totalScore,
+		};
 	}
 
 	// look at team scores and game point to see if anyone has won yet.
@@ -72,8 +76,9 @@ export class App extends Component {
 		let differenceThreshold = this.props.settings.winByTwo ?
 			(sortedScores[0].score - sortedScores[1].score >=2) :
 			(sortedScores[0].score > sortedScores[1].score);
-		//console.log(differenceThreshold);
-		if(sortedScores[0].score >= this.props.settings.gamePoint && differenceThreshold) {
+		// console.log(differenceThreshold);
+		if(sortedScores[0].score >= this.props.settings.gamePoint
+		&& differenceThreshold) {
 			// console.log("WINNER");
 			return sortedScores[0].name;
 		}else{
@@ -111,7 +116,10 @@ export class App extends Component {
 		let settingsObject = {
 			gamePoint: Number(values.gamePoint),
 			teamNames: [values.team1Name, values.team2Name],
-			pointValues: {two: Number(values.twosWorth), three: Number(values.threesWorth)},
+			pointValues: {
+				two: Number(values.twosWorth),
+				three: Number(values.threesWorth),
+			},
 			winByTwo: values.winByTwo,
 		};
 		this.props.actions.updateSettings(settingsObject);
@@ -136,9 +144,9 @@ export class App extends Component {
 						initialValues={{
 							team1Name: this.props.settings.teamNames[0],
 							team2Name: this.props.settings.teamNames[1],
-							gamePoint: ""+this.props.settings.gamePoint,
-							twosWorth: ""+this.props.settings.pointValues.two,
-							threesWorth: ""+this.props.settings.pointValues.three,
+							gamePoint: ''+this.props.settings.gamePoint,
+							twosWorth: ''+this.props.settings.pointValues.two,
+							threesWorth: ''+this.props.settings.pointValues.three,
 							winByTwo: this.props.settings.winByTwo,
 						}}
 						/>
@@ -196,7 +204,7 @@ export class App extends Component {
 		}
 	}
 
-	render(){
+	render() {
 		// break the endgame modal and gamepoint input into
 		//   their own components eventually
     return(
@@ -221,7 +229,7 @@ export class App extends Component {
 }
 
 
-function mapStateToProps(state,ownProps) {
+function mapStateToProps(state, ownProps) {
 	return {
 		settings: state.settings,
 		statPlays: state.plays,
@@ -250,9 +258,9 @@ function mapDispatchToProps(dispatch) {
 
 							team1Name: defaultSettings.teamNames[0],
 							team2Name: defaultSettings.teamNames[1],
-							gamePoint: ""+defaultSettings.gamePoint,
-							twosWorth: ""+defaultSettings.pointValues.two,
-							threesWorth: ""+defaultSettings.pointValues.three,
+							gamePoint: ''+defaultSettings.gamePoint,
+							twosWorth: ''+defaultSettings.pointValues.two,
+							threesWorth: ''+defaultSettings.pointValues.three,
 							winByTwo: defaultSettings.winByTwo,
 				}));
 			},

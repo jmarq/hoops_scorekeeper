@@ -1,0 +1,30 @@
+@import "../../variables.scss";
+
+.margin-chart{
+  svg{
+    //border: 1px solid green;
+    //background-color: rgba(255,255,255,0.2);
+    width: 100%;
+    line{
+      stroke: #eee;
+    }
+    rect{
+      //opacity: 0.8;
+      &.tie{
+        fill: purple;
+      }
+      &.team0{
+        fill: $team0Color;
+      }
+      &.team1{
+        fill: $team1Color;
+      }
+      &:last-child{
+        //stroke: white;
+        //opacity: 1;
+        box-shadow: 5px 5px 5px yellow;
+        filter: drop-shadow( -5px -5px 5px #fff );
+      }
+    }
+  }
+}
