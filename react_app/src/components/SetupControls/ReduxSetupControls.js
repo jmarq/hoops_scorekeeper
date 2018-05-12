@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {Field, reduxForm} from 'redux-form';
+//import {Field, reduxForm} from 'redux-form';
+import reduxForm from 'redux-form/lib/reduxForm';
+import Field from 'redux-form/lib/Field';
 import './SetupControls.css';
 
 // maybe this could be a container component? why?

@@ -9,7 +9,7 @@ import Scoreboard from '../Scoreboard/Scoreboard';
 import PlayByPlay from '../PlayByPlay/PlayByPlay';
 import TeamStats from '../TeamStats/TeamStats.js';
 import Tabs from '../Tabs/Tabs.js';
-import SetupControls from '../SetupControls/SetupControls.js';
+//import SetupControls from '../SetupControls/SetupControls.js';
 import ReduxSetupControls from '../SetupControls/ReduxSetupControls.js';
 
 import {defaultSettings} from '../../reducers';
