@@ -4,20 +4,26 @@
   min-width: 300px;
   clear: both;
   margin: auto; }
-  .play-by-play .play-by-play-list {
-    border: 0px solid #efc;
-    max-height: 300px;
-    overflow-y: auto; }
-  .play-by-play .play {
-    text-align: left;
-    border-bottom: 1px solid #3c3c3c; }
-    .play-by-play .play.last-play {
-      color: #dbdbdb;
-      font-style: italic; }
-    .play-by-play .play span.team-name {
-      color: #eee;
-      font-weight: bold; }
-      .play-by-play .play span.team-name.team0 {
-        text-shadow: 0px 0px 5px #f30; }
-      .play-by-play .play span.team-name.team1 {
-        text-shadow: 0px 0px 5px #03f; }
+
+.play-by-play__list {
+  border: 0px solid #efc;
+  max-height: 300px;
+  overflow-y: auto; }
+
+.play-by-play__play {
+  text-align: left;
+  border-bottom: 1px solid #3c3c3c; }
+
+.play-by-play__play--last-play {
+  color: #dbdbdb;
+  font-style: italic; }
+
+.play-by-play__play .play__team-name {
+  color: #eee;
+  font-weight: bold; }
+
+.play-by-play__play .play__team-name--team0 {
+  text-shadow: 0px 0px 5px #f30; }
+
+.play-by-play__play .play__team-name--team1 {
+  text-shadow: 0px 0px 5px #03f; }
