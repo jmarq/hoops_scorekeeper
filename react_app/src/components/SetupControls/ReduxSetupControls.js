@@ -26,7 +26,7 @@ const SetupControls = props => {
 			<form onSubmit={handleSubmit}>
 				<div className="control">
 					<label htmlFor="team1Name" className="label">Team 1</label>
-					<div>
+					<div className="control">
 						<Field
 						name="team1Name"
 						className="input"

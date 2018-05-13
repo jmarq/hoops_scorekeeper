@@ -6,27 +6,34 @@
 	min-width: 300px;
 	clear: both;
   margin: auto;
-  .play-by-play-list{
+
+  &__list{
   	border: $debugBorder;
   	max-height: 300px;
 		overflow-y: auto;
   }
-	.play{
+
+	&__play{
 		text-align: left;
 		border-bottom: 1px solid lighten($mainBG, 10%);
-		&.last-play{
+
+		&--last-play{
 			color: #dbdbdb;
 			font-style: italic;
 		}
-    span.team-name{
+
+    .play__team-name{
       color: #eee;
       font-weight: bold;
-      &.team0{
+
+      &--team0{
         text-shadow: 0px 0px 5px $team0Color;
       }
-      &.team1{
+      
+      &--team1{
         text-shadow: 0px 0px 5px $team1Color;
       }
     }
 	}
+
 }

@@ -7,6 +7,7 @@ class Tabs extends Component {
 	}
 	// what about making this component able to take a list of tab labels/classes and dynamically generating the ul>li>a markup?
 	//   aka making this thing re-usable
+	// uses bulma css framework built-in classes for tabs
 	render() {
 		return(
 			<div className="tabs is-large">

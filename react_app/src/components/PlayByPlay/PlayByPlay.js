@@ -11,15 +11,15 @@ class PlayByPlay extends Component {
 		if(numPlays) {
 			return this.props.plays.map(function(d, i) {
 				return <div
-								className={'play ' +(i===numPlays-1 && 'last-play')}
+								className={'play-by-play__play ' +(i===numPlays-1 && 'play-by-play__play--last-play')}
 								key={i}>
-								<span className={'team-name team'+d.team}>
+								<span className={'play__team-name play__team-name--team'+d.team}>
 									{teamNames[d.team]}
 								</span> - {d.playType} {pointValues[d.points]}
 							</div>;
 			});
 		}else{
-			return <div className="play">No plays yet</div>;
+			return <div className="play-by-play__play">No plays yet</div>;
 		}
 	}
 
@@ -33,7 +33,7 @@ class PlayByPlay extends Component {
 
 	componentDidMount() {
 		// console.log(ReactDOM.findDOMNode(this));
-		let div = ReactDOM.findDOMNode(this).querySelector('.play-by-play-list');
+		let div = ReactDOM.findDOMNode(this).querySelector('.play-by-play__list');
 		div.scrollTop = div.scrollHeight;
 	}
 
@@ -41,8 +41,8 @@ class PlayByPlay extends Component {
 		return(
 			<div className='play-by-play'>
 				Play-by-Play:
-				<div className='play-by-play-list'>
-					{this.displayPlays() || <div>no plays yet</div>}
+				<div className='play-by-play__list'>
+					{this.displayPlays()}
 				</div>
 				<MarginChart items={this.scoringPlays()}/>
 			</div>

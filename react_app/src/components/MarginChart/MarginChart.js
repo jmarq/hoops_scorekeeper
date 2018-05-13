@@ -17,6 +17,7 @@ class MarginChart extends Component {
 
   rects = () => {
     let margins = this.toMargins();
+
     let numRects = margins.length;
     let maxRectWidth = 100/10;
     let rectWidth = 100/numRects;
@@ -27,19 +28,20 @@ class MarginChart extends Component {
       return Math.abs(m);
     }));
     let unitHeight = 50 / maxMargin;
+
     return margins.map(function(m, index) {
       let rHeight = Math.abs(unitHeight * m);
       let rWidth = rectWidth;
       let rX = index*rectWidth;
       let rY = m < 0 ? 50-rHeight : 50;
 
-      let rClass = '';
+      let rClass = 'margin-chart__rect ';
       if(m<0) {
-        rClass = 'team1';
+        rClass += 'margin-chart__rect--team1';
       }else if(m>0) {
-        rClass = 'team0';
+        rClass += 'margin-chart__rect--team0';
       }else {
-        rClass = 'tie';
+        rClass += 'margin-chart__rect--tie';
         rY = 50-1;
       }
       return <rect
@@ -48,6 +50,7 @@ class MarginChart extends Component {
                className={rClass}
                width={rWidth}
                height={rHeight || 2}
+               key={"rect"+index}
              />;
     });
   }
@@ -55,16 +58,17 @@ class MarginChart extends Component {
   render() {
     return(
       <div className='margin-chart'>
-        <div>Margin Over Time:</div>
+        <div className='margin-chart__title'>Margin Over Time:</div>
         {this.props.items.length ?
         <svg
+          className='margin-chart__chart'
           width="100%"
           height="100" viewBox="0 0 100 100" preserveAspectRatio="none"
         >
-          <line x1="0" y1="50" x2="100" y2="50"/>
+          <line className='margin-chart__line' x1="0" y1="50" x2="100" y2="50"/>
           {this.rects()}
         </svg> :
-        <p>No Scoring Plays Yet</p>
+        <p className='margin-chart__empty-message'>No Scoring Plays Yet</p>
         }
       </div>
     );
