@@ -11,11 +11,14 @@
 	&__table{
 	  background-color: lighten($mainBG, 10%);
 	  background-color: rgba(0,0,0,0.2);
-	  color: darken($mainFG, 7%);
+	  //color: darken($mainFG, 7%);
+    color: $mainFG;
 	}
 
   &__cell{
+    border-bottom: 2px solid;
   	border-bottom-color: $mainBG;
+    padding: 10px;
   }
 
   &__row:hover{

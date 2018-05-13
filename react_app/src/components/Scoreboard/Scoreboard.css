@@ -1,3 +1,6 @@
+.score-page__last-play {
+  clear: both; }
+
 .scoreboard {
   box-sizing: border-box; }
 
@@ -88,6 +91,3 @@
 
 .score-display__progress--team1[value]::-moz-progress-bar {
   background-color: #03f; }
-
-.score-page__last-play {
-  clear: both; }

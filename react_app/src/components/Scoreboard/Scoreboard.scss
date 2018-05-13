@@ -1,5 +1,9 @@
 @import "../../variables.scss";
 
+.score-page__last-play{
+	clear: both;
+}
+
 .scoreboard{
 	//height: 200px;
 	box-sizing: border-box;
@@ -109,8 +113,4 @@
 			background-color: $team1Color;
 		}
 	}
-}
-
-.score-page__last-play{
-	clear: both;
 }
