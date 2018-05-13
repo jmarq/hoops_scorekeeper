@@ -10,32 +10,27 @@
   padding-right: 0px;
   text-align: right;
   float: left; }
-
-.score-display:nth-child(3) {
-  text-align: left;
-  padding-left: 0px;
-  padding-right: 20px; }
-
-.score-display:nth-child(3) h1 {
-  padding-right: 0px; }
-
-.score-display:nth-child(3) h2 {
-  padding-left: 30px; }
-
-.score-display h1 {
-  font-size: 75px;
-  font-family: "Bowlby One SC", sans-serif;
-  margin: 0px;
-  line-height: 1em;
-  color: #eee; }
-
-.score-display h2 {
-  color: #eee;
-  padding-right: 30px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: bold; }
+  .score-display:nth-child(3) {
+    text-align: left;
+    padding-left: 0px;
+    padding-right: 20px; }
+    .score-display:nth-child(3) h1 {
+      padding-right: 0px; }
+    .score-display:nth-child(3) h2 {
+      padding-left: 30px; }
+  .score-display h1 {
+    font-size: 75px;
+    font-family: "Bowlby One SC", sans-serif;
+    margin: 0px;
+    line-height: 1em;
+    color: #eee; }
+  .score-display h2 {
+    color: #eee;
+    padding-right: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold; }
 
 .score-display.team0 h1 {
   text-shadow: 0px 0px 45px #f30; }
@@ -82,12 +77,10 @@ div.undo-wrap {
   color: white;
   border-radius: 8px;
   background-color: red; }
-
-.undo-wrap button:hover {
-  background-color: #cc0000; }
-
-.undo-wrap button:active {
-  background-color: #660000; }
+  .undo-wrap button:hover {
+    background-color: #cc0000; }
+  .undo-wrap button:active {
+    background-color: #660000; }
 
 .score-page__last-play {
   clear: both; }

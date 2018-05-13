@@ -75,37 +75,37 @@ class TeamStats extends Component{
 
 	render() {
 		return(
-			<div className={"team-stats team"+this.props.team.index}>
-				<h1>{this.props.team.name}</h1>
-				<table className="table">
+			<div className={'team-stats team-stats--team'+this.props.team.index}>
+				<h1 className={'team-stats__team-name team-stats__team-name--team'+this.props.team.index}>{this.props.team.name}</h1>
+				<table className='team-stats__table'>
 					<tbody>
-						<tr>
-							<td>Shot Percentage</td>
-							<td>{this.shotPercentage()}</td>
+						<tr className='team-stats__row'>
+							<td className='team-stats__cell'>Shot Percentage</td>
+							<td className='team-stats__cell'>{this.shotPercentage()}</td>
 						</tr>
-						<tr>
-							<td>2PFGM</td>
-							<td>{this.twoPointers()}</td>
+						<tr className='team-stats__row'>
+							<td className='team-stats__cell'>2PFGM</td>
+							<td className='team-stats__cell'>{this.twoPointers()}</td>
 						</tr>
-						<tr>
-							<td>3PFGM</td>
-							<td>{this.threePointers()}</td>
+						<tr className='team-stats__row'>
+							<td className='team-stats__cell'>3PFGM</td>
+							<td className='team-stats__cell'>{this.threePointers()}</td>
 						</tr>
-						<tr>
-							<td>Offensive Rebounds</td>
-							<td>{this.countPlayType('offensive rebound')}</td>
+						<tr className='team-stats__row'>
+							<td className='team-stats__cell'>Offensive Rebounds</td>
+							<td className='team-stats__cell'>{this.countPlayType('offensive rebound')}</td>
 						</tr>
-						<tr>
-							<td>Defensive Rebounds</td>
-							<td>{this.countPlayType('defensive rebound')}</td>
+						<tr className='team-stats__row'>
+							<td className='team-stats__cell'>Defensive Rebounds</td>
+							<td className='team-stats__cell'>{this.countPlayType('defensive rebound')}</td>
 						</tr>
-						<tr>
-							<td>Total Rebounds</td>
-							<td>{this.totalRebounds()}</td>
+						<tr className='team-stats__row'>
+							<td className='team-stats__cell'>Total Rebounds</td>
+							<td className='team-stats__cell'>{this.totalRebounds()}</td>
 						</tr>
-						<tr>
-							<td>Turnovers</td>
-							<td>{this.turnovers()}</td>
+						<tr className='team-stats__row'>
+							<td className='team-stats__cell'>Turnovers</td>
+							<td className='team-stats__cell'>{this.turnovers()}</td>
 						</tr>
 					</tbody>
 				</table>
