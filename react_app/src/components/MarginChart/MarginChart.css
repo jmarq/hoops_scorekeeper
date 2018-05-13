@@ -1,18 +1,13 @@
 .margin-chart svg {
   width: 100%; }
-
-.margin-chart svg line {
-  stroke: #eee; }
-
-.margin-chart svg rect.tie {
-  fill: purple; }
-
-.margin-chart svg rect.team0 {
-  fill: #f30; }
-
-.margin-chart svg rect.team1 {
-  fill: #03f; }
-
-.margin-chart svg rect:last-child {
-  box-shadow: 5px 5px 5px yellow;
-  filter: drop-shadow(-5px -5px 5px #fff); }
+  .margin-chart svg line {
+    stroke: #eee; }
+  .margin-chart svg rect.tie {
+    fill: purple; }
+  .margin-chart svg rect.team0 {
+    fill: #f30; }
+  .margin-chart svg rect.team1 {
+    fill: #03f; }
+  .margin-chart svg rect:last-child {
+    box-shadow: 5px 5px 5px yellow;
+    filter: drop-shadow(-5px -5px 5px #fff); }

@@ -135,7 +135,7 @@ export class App extends Component {
 
 			case 'setup':
 				return(
-					<div>
+					<div className='setup-page'>
 						<ReduxSetupControls
 						onSubmit={this.reduxSettingsSubmit}
 						defaultSettings={this.props.actions.resetSettings}
@@ -155,16 +155,16 @@ export class App extends Component {
 
 			case 'score':
 				return(
-					<div>
-						<div>
+					<div className='score-page'>
+						<div className='score-page__scoreboard'>
 							<Scoreboard gamepoint={this.props.settings.gamePoint}
 							undo={this.props.actions.undoPlay}
 							teams={[this.teamScore(0), this.teamScore(1)]}/>
 						</div>
-						<div className="score-tab-last-play">
-						last: {this.renderLastPlay()}
+						<div className="score-page__last-play">
+							last: {this.renderLastPlay()}
 						</div>
-						<div>
+						<div className="score-page__score-controls">
 							<ScoreControls
 							values={this.props.settings.pointValues}
 							needRebound={this.needRebound()}
@@ -183,7 +183,7 @@ export class App extends Component {
 
 			case 'stats':
 				return(
-					<div>
+					<div className='stats-page'>
 						<TeamStats team={{index: 0, name: this.props.settings.teamNames[0]}}
 						plays={this.props.statPlays}></TeamStats>
 						<TeamStats team={{index: 1, name: this.props.settings.teamNames[1]}}
@@ -193,9 +193,11 @@ export class App extends Component {
 
 			case 'plays':
 				return(
-					<PlayByPlay teamNames={this.props.settings.teamNames}
-					plays={this.props.statPlays}
-					pointValues={this.props.settings.pointValues}/>
+					<div className='plays-page'>
+						<PlayByPlay teamNames={this.props.settings.teamNames}
+						plays={this.props.statPlays}
+						pointValues={this.props.settings.pointValues}/>
+					</div>
 				);
 
 			default:
@@ -207,9 +209,9 @@ export class App extends Component {
 	render() {
 		// break the endgame modal and gamepoint input into
 		//   their own components eventually
+		// modal uses bulma css classes
     return(
 			<div>
-
 				<div className={'modal' + (this.winningTeam() &&
 					!this.props.endGameAcknowledged ? ' is-active': '')}>
 					<div className='modal-background'></div>
@@ -221,7 +223,6 @@ export class App extends Component {
 				</div>
 				<Tabs activeTab={this.props.activeTab} handler={this.handleTab}></Tabs>
 				{ this.tabContent() }
-
 			</div>
 		);
 	}
