@@ -4,6 +4,32 @@
 	//height: 200px;
 	box-sizing: border-box;
 }
+.scoreboard__undo-wrap{
+	box-sizing: border-box;
+	width: 20%;
+	float: left;
+}
+
+.scoreboard__undo-button{
+	// this has a decent amount in common with the other buttons in ScoreControls.scss, maybe a mixin?
+	transition: 125ms linear;
+	display: inline-block;
+	margin: 0px;
+	margin-top: 80px;
+	padding: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 20px;
+	color: white;
+	border-radius: 8px;
+	background-color: red;
+	&:hover{
+		background-color: darken(red, 10%);
+	}
+	&:active{
+		background-color: darken(red, 30%);
+	}
+}
 
 .score-display{
  	box-sizing: border-box;
@@ -58,89 +84,33 @@
 		}
 	}
 
-	// &__progress{
-	// 	&[value]::-webkit-progress-value, &[value]::-moz-progress-bar{
-	// 		transition: 250ms linear;
-	// 	}
-
-	// 	&--team0[value]::-webkit-progress-value, &--team0[value]::-moz-progress-bar{
-	// 		background-color: $team0Color;
-	// 	}
-
-	// 	&--team1[value]::-webkit-progress-value, &--team1[value]::-moz-progress-bar{
-	// 		background-color: $team1Color;
-	// 	}
-	// }
-}
-
-.score-display progress[value]::-webkit-progress-value {
-	transition: 250ms linear;
-	background-color: red;
-}
-
-// //first team specific
-// .score-display.team0{
-// 	//color: red;
-	
-// 	progress[value]::-webkit-progress-value {
-// 	  background-color: $team0Color;
-// 	}
-
-// 	progress[value]::-moz-progress-bar {
-// 	  background-color: $team0Color;
-// 	}
-// }
-// //second team specific
-// .score-display.team1{
-	
-//   progress[value]::-webkit-progress-value {
-// 	  background-color: $team1Color;
-// 	}
-
-// 	progress[value]::-moz-progress-bar {
-// 	  background-color: $team1Color;
-// 	}
-// }
-
-//progress bar styles. need to test on edge.
-// $progressColor: #fa0;
-// progress[value]::-webkit-progress-value {
-// 	transition: 250ms linear;
-//   background-color: $progressColor;
-// }
-
-// progress[value]::-moz-progress-bar {
-// 	transition: 250ms linear;
-//   background-color: $progressColor;
-// }
-
-.scoreboard__undo-wrap{
-	box-sizing: border-box;
-	width: 20%;
-	float: left;
-}
-
-.scoreboard__undo-button{
-		// this has a decent amount in common with the other buttons in ScoreControls.scss, maybe a mixin?
-		transition: 125ms linear;
-		display: inline-block;
-		margin: 0px;
-		margin-top: 80px;
-		padding: 5px;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		font-size: 20px;
-		color: white;
-		border-radius: 8px;
-		background-color: red;
-		&:hover{
-			background-color: darken(red, 10%);
+	&__progress{
+		&[value]::-webkit-progress-value{
+			transition: 250ms linear;
 		}
-		&:active{
-			background-color: darken(red, 30%);
+
+		&[value]::-moz-progress-bar{
+			transition: 250ms linear;
+		}
+
+		&--team0[value]::-webkit-progress-value{
+			background-color: $team0Color;
+		}
+
+		&--team0[value]::-moz-progress-bar{
+			background-color: $team0Color;
+		}
+
+		&--team1[value]::-webkit-progress-value{
+			background-color: $team1Color;
+		}
+
+		&--team1[value]::-moz-progress-bar{
+			background-color: $team1Color;
 		}
 	}
+}
 
-  .score-page__last-play{
-  	clear: both;
-  }
+.score-page__last-play{
+	clear: both;
+}

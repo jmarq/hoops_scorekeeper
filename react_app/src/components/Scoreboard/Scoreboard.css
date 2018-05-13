@@ -1,6 +1,30 @@
 .scoreboard {
   box-sizing: border-box; }
 
+.scoreboard__undo-wrap {
+  box-sizing: border-box;
+  width: 20%;
+  float: left; }
+
+.scoreboard__undo-button {
+  transition: 125ms linear;
+  display: inline-block;
+  margin: 0px;
+  margin-top: 80px;
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  color: white;
+  border-radius: 8px;
+  background-color: red; }
+
+.scoreboard__undo-button:hover {
+  background-color: #cc0000; }
+
+.scoreboard__undo-button:active {
+  background-color: #660000; }
+
 .score-display {
   box-sizing: border-box;
   border: 0px solid #efc;
@@ -47,33 +71,23 @@
   text-shadow: 0px 0px 10px #03f;
   padding-left: 30px; }
 
-.score-display progress[value]::-webkit-progress-value {
-  transition: 250ms linear;
-  background-color: red; }
+.score-display__progress[value]::-webkit-progress-value {
+  transition: 250ms linear; }
 
-.scoreboard__undo-wrap {
-  box-sizing: border-box;
-  width: 20%;
-  float: left; }
+.score-display__progress[value]::-moz-progress-bar {
+  transition: 250ms linear; }
 
-.scoreboard__undo-button {
-  transition: 125ms linear;
-  display: inline-block;
-  margin: 0px;
-  margin-top: 80px;
-  padding: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 20px;
-  color: white;
-  border-radius: 8px;
-  background-color: red; }
+.score-display__progress--team0[value]::-webkit-progress-value {
+  background-color: #f30; }
 
-.scoreboard__undo-button:hover {
-  background-color: #cc0000; }
+.score-display__progress--team0[value]::-moz-progress-bar {
+  background-color: #f30; }
 
-.scoreboard__undo-button:active {
-  background-color: #660000; }
+.score-display__progress--team1[value]::-webkit-progress-value {
+  background-color: #03f; }
+
+.score-display__progress--team1[value]::-moz-progress-bar {
+  background-color: #03f; }
 
 .score-page__last-play {
   clear: both; }

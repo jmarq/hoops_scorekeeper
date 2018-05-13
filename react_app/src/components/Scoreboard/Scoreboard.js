@@ -11,7 +11,7 @@ class ScoreDisplay extends Component{
 					{/* pad with 0 if single digit */}
 					{((''+score).length<2 ? '0' : '')+score}
 				</h1>
-				<progress className={'score-display__progress score-display__progress--team'+this.props.team.index}
+				<progress className={'progress score-display__progress score-display__progress--team'+this.props.team.index}
 				value={score} max={this.props.gamepoint}>
 				</progress>
 			</div>
