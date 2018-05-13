@@ -50,8 +50,8 @@ class ScoreControls extends Component {
 				<span>
 					<button className='score-controls__button' onClick={this.scoreTwo}>+{this.props.values.two}</button>
 					<button className='score-controls__button' onClick={this.scoreThree}>+{this.props.values.three}</button>
-					<button className='score-controls__button--bad-play' onClick={this.addMiss}>miss</button>
-					<button className='score-controls__button--bad-play' onClick={this.addTurnover}>TO</button>
+					<button className='score-controls__button score-controls__button--bad-play' onClick={this.addMiss}>miss</button>
+					<button className='score-controls__button score-controls__button--bad-play' onClick={this.addTurnover}>TO</button>
 				</span>
 				}
 			</div>
