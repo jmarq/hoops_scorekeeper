@@ -9,78 +9,98 @@
  	box-sizing: border-box;
 	border: $debugBorder;
 	width: 40%;
-	padding: 20px;
+	padding-bottom: 20px;
 	padding-top: 0px;
-	padding-right: 0px;
-	text-align: right;
 	float: left;
-  	&:nth-child(3){ //3 now instead of 2 because the undo button is now 2nd
+
+	&--team0{
+		text-align: right;
+		padding-left: 20px;
+		padding-right: 0px;
+	}
+
+	&--team1{
 		text-align: left;
 		padding-left: 0px;
 		padding-right: 20px;
-		h1{
-			//padding-left: 30px;
-			padding-right: 0px
-		}
-		h2{
-			padding-left:30px;
-		}
 	}
-	h1{
+  
+	&__score{
 		font-size: 75px;
 		font-family: "Bowlby One SC", sans-serif;
 		margin: 0px;
-		//padding-right: 30px;
 		line-height: 1em;
 		color: #eee;
+
+		&--team0{
+			text-shadow: 0px 0px 45px $team0Color;
+		}
+
+		&--team1{
+			text-shadow: 0px 0px 45px $team1Color;
+		}
 	}
-	h2{
+	&__team-name{
 		color: #eee;
-		padding-right: 30px;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		font-weight: bold;
-	}
-}
 
-//first team specific
-.score-display.team0{
-	//color: red;
-  h1{
-		text-shadow: 0px 0px 45px $team0Color;
-	}
-	h2{
-		text-shadow: 0px 0px 10px $team0Color;
-	}
-	progress[value]::-webkit-progress-value {
-		transition: 250ms linear;
-	  background-color: $team0Color;
+		&--team0{
+			text-shadow: 0px 0px 10px $team0Color;
+			padding-right: 30px;
+		}
+
+		&--team1{
+			text-shadow: 0px 0px 10px $team1Color;
+			padding-left:30px;
+		}
 	}
 
-	progress[value]::-moz-progress-bar {
-		transition: 250ms linear;
-	  background-color: $team0Color;
-	}
-}
-//second team specific
-.score-display.team1{
-  h1{
-		text-shadow: 0px 0px 45px $team1Color;
-  }
-  h2{
-		text-shadow: 0px 0px 10px $team1Color;
-	}
-  progress[value]::-webkit-progress-value {
-		transition: 250ms linear;
-	  background-color: $team1Color;
-	}
+	// &__progress{
+	// 	&[value]::-webkit-progress-value, &[value]::-moz-progress-bar{
+	// 		transition: 250ms linear;
+	// 	}
 
-	progress[value]::-moz-progress-bar {
-		transition: 250ms linear;
-	  background-color: $team1Color;
-	}
+	// 	&--team0[value]::-webkit-progress-value, &--team0[value]::-moz-progress-bar{
+	// 		background-color: $team0Color;
+	// 	}
+
+	// 	&--team1[value]::-webkit-progress-value, &--team1[value]::-moz-progress-bar{
+	// 		background-color: $team1Color;
+	// 	}
+	// }
 }
+
+.score-display progress[value]::-webkit-progress-value {
+	transition: 250ms linear;
+	background-color: red;
+}
+
+// //first team specific
+// .score-display.team0{
+// 	//color: red;
+	
+// 	progress[value]::-webkit-progress-value {
+// 	  background-color: $team0Color;
+// 	}
+
+// 	progress[value]::-moz-progress-bar {
+// 	  background-color: $team0Color;
+// 	}
+// }
+// //second team specific
+// .score-display.team1{
+	
+//   progress[value]::-webkit-progress-value {
+// 	  background-color: $team1Color;
+// 	}
+
+// 	progress[value]::-moz-progress-bar {
+// 	  background-color: $team1Color;
+// 	}
+// }
 
 //progress bar styles. need to test on edge.
 // $progressColor: #fa0;
@@ -94,13 +114,13 @@
 //   background-color: $progressColor;
 // }
 
-div.undo-wrap{
+.scoreboard__undo-wrap{
 	box-sizing: border-box;
 	width: 20%;
 	float: left;
 }
 
-.undo-wrap button{
+.scoreboard__undo-button{
 		// this has a decent amount in common with the other buttons in ScoreControls.scss, maybe a mixin?
 		transition: 125ms linear;
 		display: inline-block;
