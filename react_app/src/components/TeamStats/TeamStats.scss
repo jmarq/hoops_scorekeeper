@@ -1,12 +1,18 @@
 @import "../../variables.scss";
-
+.stats-page{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 .team-stats{
   box-sizing: border-box;
   border: $debugBorder;
   color: $mainFG;
   width: 50%;
   padding: 2px;
-  float: left;
+  //min-width: 250px;
+  margin: 5px;
+  //float: left;
 
   &__table{
     background-color: lighten($mainBG, 10%);

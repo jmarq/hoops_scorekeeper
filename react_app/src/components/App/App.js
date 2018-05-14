@@ -187,7 +187,6 @@ export class UnwrappedApp extends Component {
             plays={this.props.statPlays}></TeamStats>
             <TeamStats team={{index: 1, name: this.props.settings.teamNames[1]}}
             plays={this.props.statPlays}></TeamStats>
-            <br/>
           </div>
         );
 
