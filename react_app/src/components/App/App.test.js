@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {mount} from 'enzyme';
+import {mount, shallow} from 'enzyme';
 import App from './App';
+import {UnwrappedApp} from './App';
 import PlayByPlay from '../PlayByPlay/PlayByPlay';
 import ScoreControls from '../ScoreControls/ScoreControls';
 import Scoreboard from '../Scoreboard/Scoreboard';
@@ -27,7 +28,7 @@ describe("test basic rendering using mock store", () => {
     };
     let store = mockStore(initialState);
     let wrapper = mount(<Provider store={store}><App/></Provider>);
-    console.log(wrapper.find(PlayByPlay).prop("plays"));
+    //console.log(wrapper.find(PlayByPlay).prop("plays"));
   });
 });
 
@@ -58,9 +59,43 @@ describe("test rendering with 'real' store", () => {
 
     store.dispatch(changeTab('setup'));
     expect(wrapper.find(ReduxSetupControls).length).toEqual(1);
-
-
   });
+})
+
+
+describe("helper methods", ()=>{
+  it("knows if a rebound is needed", () => {
+    let props = {
+      settings: defaultSettings,
+      statPlays: [],
+      endGameAcknowledged: false,
+      activeTab: 'score',
+      actions: {
+        addPlay: (playObject) => {
+        },
+        undoPlay: () => {
+        },
+        resetGame: () => {
+        },
+        updateSettings: (settingsObject) => {
+        },
+        resetSettings: () => {
+        },
+        acknowledgeEndGame: () => {
+        },
+        changeTab: (tabName) => {
+        },
+      },
+    }
+    let app = shallow(<UnwrappedApp {...props} />);
+    expect(app.instance().needRebound()).toEqual([false, undefined]);
+    app.setProps({
+      statPlays: [{
+        playType: 'miss', team: 0,
+      }],
+    });
+    expect(app.instance().needRebound()).toEqual([true, 0]);
+   });
 });
 
 

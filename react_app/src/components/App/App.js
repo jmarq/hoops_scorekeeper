@@ -19,11 +19,11 @@ import {
     } from '../../actions.js';
 import {initialize} from 'redux-form';
 
-export class App extends Component {
+export class UnwrappedApp extends Component {
 
   constructor(props) {
     super(props);
-    console.log(props.settings);
+    //console.log(props.settings);
   }
 
   handleTab = (ev) => {
@@ -65,7 +65,6 @@ export class App extends Component {
   }
 
   // look at team scores and game point to see if anyone has won yet.
-  // "win by two" is assumed, though that should eventually become an option
   winningTeam = () =>{
     // console.log("in winningTeam");
     let scores = [this.teamScore(0), this.teamScore(1)];
@@ -275,4 +274,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(UnwrappedApp);

@@ -4,11 +4,7 @@ import reduxForm from 'redux-form/lib/reduxForm';
 import Field from 'redux-form/lib/Field';
 import './SetupControls.css';
 
-// maybe this could be a container component? why?
-//    to avoid cumbersome passing of props.
-//    wrapper component doesn't need change handlers,
-//    it just has them for the sake of passing them down here
-//   why not?  it doesn't really introduce any further state...
+// unwrapped form component, to be wrapped with reduxForm for final export
 const SetupControls = props => {
   const {
     handleSubmit,
@@ -18,9 +14,7 @@ const SetupControls = props => {
     defaultSettings,
     resetGame,
   } = props;
-  console.log(props.initialValues);
-  console.log(pristine);
-  console.log(props);
+// consider componentizing "control" divs
   return(
     <div className="setup-controls">
       <form onSubmit={handleSubmit}>
