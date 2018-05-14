@@ -4,13 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-		<link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
-    <!-- Allow everything in development -->
-    <meta http-equiv="Content-Security-Policy"
-          content="default-src *;
-                 style-src 'self' 'unsafe-inline';
-                 script-src 'self' 'unsafe-inline' 'unsafe-eval'">
-    <script src="cordova.js"></script>
     <!--
       Notice the use of %PUBLIC_URL% in the tag above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -20,6 +13,14 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+		<link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
+    <!-- Allow everything in development -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src *;
+                 style-src 'self' 'unsafe-inline';
+                 script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <script type="text/javascript" src="cordova.js"></script>
+    
     <title>Pickup Basketball Scorekeeper</title>
   </head>
   <body>
