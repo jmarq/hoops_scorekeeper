@@ -106,7 +106,7 @@ export class UnwrappedApp extends Component {
 // should endgame acknowledgment be part of redux store?
   reset = (ev) => {
     if(confirm('Are you sure you want to reset the game?')) {
-      this.props.actions.reset();
+      this.props.actions.resetGame();
     }
   }
 
@@ -138,8 +138,8 @@ export class UnwrappedApp extends Component {
             <ReduxSetupControls
             onSubmit={this.reduxSettingsSubmit}
             defaultSettings={this.props.actions.resetSettings}
-            resetGame={this.props.actions.resetGame}
-            extra={this.props.settings}
+            resetGame={this.reset}
+            noPlays={this.props.statPlays.length == 0}
             initialValues={{
               team1Name: this.props.settings.teamNames[0],
               team2Name: this.props.settings.teamNames[1],
@@ -187,6 +187,7 @@ export class UnwrappedApp extends Component {
             plays={this.props.statPlays}></TeamStats>
             <TeamStats team={{index: 1, name: this.props.settings.teamNames[1]}}
             plays={this.props.statPlays}></TeamStats>
+            <br/>
           </div>
         );
 

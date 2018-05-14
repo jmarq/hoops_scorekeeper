@@ -13,6 +13,7 @@ const SetupControls = props => {
     submitting,
     defaultSettings,
     resetGame,
+    noPlays,
   } = props;
 // consider componentizing "control" divs
   return(
@@ -104,7 +105,8 @@ const SetupControls = props => {
               Default Settings
             </button>
             <button type="button" className="bad-play"
-            onClick={resetGame}>Reset Game</button>
+            onClick={resetGame}
+            disabled={noPlays}>Reset Game</button>
           </div>
         </div>
       </form>

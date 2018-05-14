@@ -23,11 +23,12 @@ button {
   color: white;
   border-radius: 8px; }
 
-button[disabled] {
+button[disabled], button.bad-play[disabled] {
   background-color: #333;
-  color: #888; }
+  color: #888;
+  border: 2px solid transparent; }
 
-button[disabled]:hover {
+button[disabled]:hover, button.bad-play[disabled]:hover {
   background-color: #333; }
 
 button:hover {

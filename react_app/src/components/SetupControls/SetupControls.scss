@@ -34,9 +34,9 @@
   }
 
   input{
-    background-color: #222;
+    background-color: rgba(0,0,0,0.3);
     color: $mainFG;
-    border: 1px solid #444;
+    border: 2px solid #333;
     font-weight: bold;
     &:focus{
       color: #eee;

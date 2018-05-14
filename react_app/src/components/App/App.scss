@@ -26,9 +26,10 @@ button{
     background-color: #086;
     color: white;
     border-radius: 8px;
-    &[disabled]{
+    &[disabled], &.bad-play[disabled]{
       background-color: #333;
       color: #888;
+      border: 2px solid transparent;
       &:hover{
         background-color: #333;
       }
