@@ -30,6 +30,9 @@
   &__team-name{
     color: #eee;
     font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &--team0{
       text-shadow: 0px 0px 5px $team0Color;
