@@ -4,43 +4,34 @@
   width: 50%;
   float: left;
   margin-bottom: 2em; }
-
-.score-controls--team0 {
-  text-align: right;
-  padding-right: 10px;
-  border-right: 1px solid #efc; }
-
-.score-controls--team1 {
-  text-align: left;
-  padding-left: 10px;
-  border-left: 1px solid #efc; }
-
-.score-controls__button {
-  transition: 125ms linear;
-  display: inline-block;
-  margin: 7px;
-  padding: 7px;
-  font-size: 36px;
-  background-color: #086;
-  color: white;
-  border-radius: 8px; }
-
-.score-controls__button:hover {
-  background-color: #297; }
-
-.score-controls__button:active {
-  background-color: #068; }
-
-.score-controls__button--rebound {
-  font-size: 24px;
-  padding-top: 1.5em;
-  padding-bottom: 1.5em; }
-
-.score-controls__button--bad-play {
-  background-color: #a40; }
-
-.score-controls__button--bad-play:hover {
-  background-color: #773000; }
-
-.score-controls__button--bad-play:active {
-  background-color: #110700; }
+  .score-controls--team0 {
+    text-align: right;
+    padding-right: 10px;
+    border-right: 1px solid #efc; }
+  .score-controls--team1 {
+    text-align: left;
+    padding-left: 10px;
+    border-left: 1px solid #efc; }
+  .score-controls__button {
+    transition: 125ms linear;
+    display: inline-block;
+    margin: 7px;
+    padding: 7px;
+    font-size: 36px;
+    background-color: #086;
+    color: white;
+    border-radius: 8px; }
+    .score-controls__button:hover {
+      background-color: #297; }
+    .score-controls__button:active {
+      background-color: #068; }
+    .score-controls__button--rebound {
+      font-size: 24px;
+      padding-top: 1.5em;
+      padding-bottom: 1.5em; }
+    .score-controls__button--bad-play {
+      background-color: #a40; }
+      .score-controls__button--bad-play:hover {
+        background-color: #773000; }
+      .score-controls__button--bad-play:active {
+        background-color: #110700; }
