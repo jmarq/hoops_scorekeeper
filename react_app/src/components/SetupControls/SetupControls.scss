@@ -1,14 +1,14 @@
 @import "../../variables.scss";
 
 .setup-controls{
-	label.label{
-		text-align: left;
-		color: $mainFG;
+  label.label{
+    text-align: left;
+    color: $mainFG;
     margin-bottom: 2px;
-	}
-	max-width: 300px;
-	margin-left: auto;
-	margin-right: auto;
+  }
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
  
   button{
     font-size: 1.5em;

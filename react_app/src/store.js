@@ -3,9 +3,9 @@ import {rootReducer} from './reducers';
 
 
 export default function configureStore(initialState) {
-	return createStore(
-		rootReducer,
-		initialState,
-		//applyMiddleware(thunk) // thunk middleware for async actions
-		);
+  return createStore(
+    rootReducer,
+    initialState,
+    //applyMiddleware(thunk) // thunk middleware for async actions
+    );
 };

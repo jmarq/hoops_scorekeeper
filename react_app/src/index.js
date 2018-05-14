@@ -8,21 +8,21 @@ import './index.css';
 
 function startApp() {
 
-	const store = configureStore();
+  const store = configureStore();
 
-	ReactDOM.render(
-		<Provider store={store}>
-			<App />
-		</Provider>,
-		document.getElementById('root')
-	);
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById('root')
+  );
 }
 
 
 if (window.cordova) {
-	document.addEventListener('deviceready', startApp, false);
+  document.addEventListener('deviceready', startApp, false);
 }else {
-	startApp();
+  startApp();
 }
 
 

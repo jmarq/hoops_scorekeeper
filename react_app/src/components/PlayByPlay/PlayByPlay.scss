@@ -1,26 +1,26 @@
 @import "../../variables.scss";
 
 .play-by-play{
-	box-sizing: border-box;
-	width: 40%;
-	min-width: 300px;
-	clear: both;
+  box-sizing: border-box;
+  width: 40%;
+  min-width: 300px;
+  clear: both;
   margin: auto;
 
   &__list{
-  	border: $debugBorder;
-  	max-height: 300px;
-		overflow-y: auto;
+    border: $debugBorder;
+    max-height: 300px;
+    overflow-y: auto;
   }
 
-	&__play{
-		text-align: left;
-		border-bottom: 1px solid lighten($mainBG, 10%);
+  &__play{
+    text-align: left;
+    border-bottom: 1px solid lighten($mainBG, 10%);
 
-		&--last-play{
-			color: #dbdbdb;
-			font-style: italic;
-		}
+    &--last-play{
+      color: #dbdbdb;
+      font-style: italic;
+    }
 
     .play__team-name{
       color: #eee;
@@ -34,6 +34,6 @@
         text-shadow: 0px 0px 5px $team1Color;
       }
     }
-	}
+  }
 
 }

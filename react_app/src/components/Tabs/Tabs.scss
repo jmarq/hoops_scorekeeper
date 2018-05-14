@@ -5,13 +5,13 @@ div.tabs.is-large{
 }
 
 .tabs a{
-	//color: white;
+  //color: white;
   color: $mainFG;
-	padding: 10px;
-	&:hover{
-		color: $mainFG;
-		border-bottom: 1px solid #dbdbdb;
-	}
+  padding: 10px;
+  &:hover{
+    color: $mainFG;
+    border-bottom: 1px solid #dbdbdb;
+  }
 }
 
 .tabs ul{

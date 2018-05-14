@@ -1,58 +1,58 @@
 @import "../../variables.scss";
 
 .score-controls{
-	box-sizing: border-box;
-	border: $debugBorder;
-	width: 50%;
-	float: left;
-	margin-bottom: 2em;
+  box-sizing: border-box;
+  border: $debugBorder;
+  width: 50%;
+  float: left;
+  margin-bottom: 2em;
 
-	&--team0{
-		text-align: right;
-		padding-right: 10px;
-		border-right: 1px solid $mainFG;
-	}
+  &--team0{
+    text-align: right;
+    padding-right: 10px;
+    border-right: 1px solid $mainFG;
+  }
 
-	&--team1{
-		text-align: left;
-		padding-left: 10px;
-		border-left: 1px solid $mainFG;
-	}
+  &--team1{
+    text-align: left;
+    padding-left: 10px;
+    border-left: 1px solid $mainFG;
+  }
 
-	&__button{
-		transition: 125ms linear;
-		display: inline-block;
-		margin: 7px;
-		padding: 7px;
-		font-size: 36px;
-		background-color: #086;
-		color: white;
-		border-radius: 8px;
+  &__button{
+    transition: 125ms linear;
+    display: inline-block;
+    margin: 7px;
+    padding: 7px;
+    font-size: 36px;
+    background-color: #086;
+    color: white;
+    border-radius: 8px;
 
-		&:hover{
-			background-color: #297;
-		}
+    &:hover{
+      background-color: #297;
+    }
 
-		&:active{
-			background-color: #068;
-		}
+    &:active{
+      background-color: #068;
+    }
 
-		&--rebound{
-			font-size: 24px;
-			line-height: 4em;
-		}
+    &--rebound{
+      font-size: 24px;
+      line-height: 4em;
+    }
 
-		&--bad-play{
-			$badPlayColor: #a40;
-			background-color: $badPlayColor;
+    &--bad-play{
+      $badPlayColor: #a40;
+      background-color: $badPlayColor;
 
-			&:hover{
-				background-color: darken($badPlayColor, 10%);
-			}
-			
-			&:active{
-				background-color: darken($badPlayColor, 30%);
-			}
-		}
-	}
+      &:hover{
+        background-color: darken($badPlayColor, 10%);
+      }
+      
+      &:active{
+        background-color: darken($badPlayColor, 30%);
+      }
+    }
+  }
 }

@@ -68,7 +68,7 @@ describe("test rendering with 'real' store", () => {
 // but it was a nice way to familiarize myself with Enzyme mounting
 // it('renders correct team name on scoreboard', () => {
 //   const wrapper = mount(
-//       <App/>
+//   <App/>
 //   );
 //   wrapper.setState({
 // 			statPlays: [],
@@ -76,8 +76,8 @@ describe("test rendering with 'real' store", () => {
 // 			pointValues: {'two': 1, 'three': 2},
 // 			teamNames: ['Jimbo', 'Jambo'],
 // 			endGameAcknowledged: false,  // for showing/hiding modal,
-//       // maybe also for disabling stat buttons?
-//       // think about this. how should the app act after game point reached?
+//   // maybe also for disabling stat buttons?
+//   // think about this. how should the app act after game point reached?
 // 			activeTab: 'score',
 // 		});
 

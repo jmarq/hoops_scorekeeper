@@ -1,40 +1,40 @@
 @import "../../variables.scss";
 
 .team-stats{
-	box-sizing: border-box;
-	border: $debugBorder;
-	color: $mainFG;
-	width: 50%;
-	padding: 2px;
-	float: left;
+  box-sizing: border-box;
+  border: $debugBorder;
+  color: $mainFG;
+  width: 50%;
+  padding: 2px;
+  float: left;
 
-	&__table{
-	  background-color: lighten($mainBG, 10%);
-	  background-color: rgba(0,0,0,0.2);
-	  //color: darken($mainFG, 7%);
+  &__table{
+    background-color: lighten($mainBG, 10%);
+    background-color: rgba(0,0,0,0.2);
+    //color: darken($mainFG, 7%);
     color: $mainFG;
-	}
+  }
 
   &__cell{
     border-bottom: 2px solid;
-  	border-bottom-color: $mainBG;
+    border-bottom-color: $mainBG;
     padding: 10px;
   }
 
   &__row:hover{
-  	background-color: $mainBG;
+    background-color: $mainBG;
   }
-	
-	&__team-name{
-		color: #eee;
-		font-weight: bold;
+  
+  &__team-name{
+    color: #eee;
+    font-weight: bold;
 
-		&--team0{
-			text-shadow: 0px 0px 5px $team0Color;
-		}
-		
-		&--team1{
-			text-shadow: 0px 0px 5px $team1Color;
-		}
-	}
+    &--team0{
+      text-shadow: 0px 0px 5px $team0Color;
+    }
+    
+    &--team1{
+      text-shadow: 0px 0px 5px $team1Color;
+    }
+  }
 }

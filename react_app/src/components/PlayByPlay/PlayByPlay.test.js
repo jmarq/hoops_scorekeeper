@@ -33,9 +33,9 @@ it('renders message when there are no plays yet', () => {
   let emptyPlaysProps = {...testProps};
   emptyPlaysProps.plays = [];
   const wrapper = mount(
-	  <PlayByPlay {...emptyPlaysProps}/>
-	);	
-	let plays = wrapper.find('.play');
-	let firstPlay = plays.at(0).text();
-	expect(firstPlay).toEqual("No plays yet");
+    <PlayByPlay {...emptyPlaysProps}/>
+  );  
+  let plays = wrapper.find('.play');
+  let firstPlay = plays.at(0).text();
+  expect(firstPlay).toEqual("No plays yet");
 });
