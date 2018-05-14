@@ -1,3 +1,9 @@
+.margin-chart__title {
+  font-weight: bold; }
+
+.margin-chart__empty-message {
+  font-style: italic; }
+
 .margin-chart__chart {
   width: 100%; }
 

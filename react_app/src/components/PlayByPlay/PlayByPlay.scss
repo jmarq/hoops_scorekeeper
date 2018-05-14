@@ -7,6 +7,10 @@
   clear: both;
   margin: auto;
 
+  &__title{
+    font-weight: bold;
+  }
+
   &__list{
     border: $debugBorder;
     max-height: 300px;
@@ -17,9 +21,15 @@
     text-align: left;
     border-bottom: 1px solid lighten($mainBG, 10%);
 
+    &--empty{
+      font-style: italic;
+      text-align: center;
+    }
+
     &--last-play{
       color: #dbdbdb;
       font-style: italic;
+      background-color: #282828;
     }
 
     .play__team-name{

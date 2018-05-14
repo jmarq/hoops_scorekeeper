@@ -19,7 +19,7 @@ class PlayByPlay extends Component {
               </div>;
       });
     }else{
-      return <div className="play-by-play__play">No plays yet</div>;
+      return <div className="play-by-play__play play-by-play__play--empty">No plays yet</div>;
     }
   }
 
@@ -40,7 +40,7 @@ class PlayByPlay extends Component {
   render() {
     return(
       <div className='play-by-play'>
-        Play-by-Play:
+        <h1 className='play-by-play__title'>Play-by-Play:</h1>
         <div className='play-by-play__list'>
           {this.displayPlays()}
         </div>

@@ -58,7 +58,7 @@ class MarginChart extends Component {
   render() {
     return(
       <div className='margin-chart'>
-        <div className='margin-chart__title'>Margin Over Time:</div>
+        <h1 className='margin-chart__title'>Margin Over Time:</h1>
         {this.props.items.length ?
         <svg
           className='margin-chart__chart'

@@ -1,6 +1,15 @@
 @import "../../variables.scss";
 
 .margin-chart{
+
+  &__title{
+    font-weight: bold;
+  }
+
+  &__empty-message{
+    font-style: italic;
+  }
+
   &__chart{
     width: 100%;
   }
