@@ -11,7 +11,7 @@ class PlayByPlay extends Component {
     if(numPlays) {
       return this.props.plays.map(function(d, i) {
         return <div
-                className={'play-by-play__play ' +(i===numPlays-1 && 'play-by-play__play--last-play')}
+                className={'play-by-play__play' +(i===numPlays-1 ? ' play-by-play__play--last-play' : '')}
                 key={i}>
                 <span className={'play__team-name play__team-name--team'+d.team}>
                   {teamNames[d.team]}
