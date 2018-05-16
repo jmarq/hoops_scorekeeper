@@ -148,6 +148,53 @@ describe("helper methods", ()=>{
     expectedTotal = currentPointValues.two + currentPointValues.three;
     expect(instance.teamScore(0).score).toEqual(expectedTotal);
   });
+
+
+  it('knows when a team has won', () => {
+    let props = {
+      ...testProps,
+      settings: {
+        ...testProps.settings,
+        winByTwo: true,
+        gamePoint: 15,
+        pointValues: {
+          two: 14,
+          three: 15,
+        },
+      },
+    };
+    let app = shallow(<UnwrappedApp {...props} />);
+    // no plays yet, should have no winner
+    let instance = app.instance();
+    expect(instance.winningTeam()).toEqual(false);
+    let team0 = instance.props.settings.teamNames[0];
+
+    app.setProps({
+      statPlays: [
+        {team: 0, playType: 'score', points: 'three'},
+      ],
+    });
+    // 15-0, winner should be team 0
+    expect(instance.winningTeam()).toEqual(team0);
+
+    app.setProps({
+      statPlays: [
+        {team: 0, playType: 'score', points: 'three'},
+        {team: 1, playType: 'score', points: 'two'},
+      ],
+    });
+    // 15-14, one point margin, no winner
+    expect(instance.winningTeam()).toEqual(false);
+
+    app.setProps({
+      settings: {
+        ...instance.props.settings,
+        winByTwo: false,
+      },
+    });
+    // 15-14, winByTwo is false, team0 should win
+    expect(instance.winningTeam()).toEqual(team0);
+  });
 });
 
 
