@@ -15,8 +15,8 @@ import {defaultSettings} from '../../reducers';
 import {changeTab} from '../../actions';
 
 
-describe("test basic rendering using mock store", () => {
-  const mockStore = configureMockStore()
+describe('test basic rendering using mock store', () => {
+  const mockStore = configureMockStore();
 
 
   it('renders without crashing', () => {
@@ -28,14 +28,12 @@ describe("test basic rendering using mock store", () => {
     };
     let store = mockStore(initialState);
     let wrapper = mount(<Provider store={store}><App/></Provider>);
-    //console.log(wrapper.find(PlayByPlay).prop("plays"));
+    // console.log(wrapper.find(PlayByPlay).prop("plays"));
   });
 });
 
-describe("test rendering with 'real' store", () => {
-
+describe('test rendering with "real" store', () => {
   it('renders correct tabs', () => {
-
     let initialState = {
       settings: defaultSettings,
       plays: [],
@@ -60,11 +58,10 @@ describe("test rendering with 'real' store", () => {
     store.dispatch(changeTab('setup'));
     expect(wrapper.find(ReduxSetupControls).length).toEqual(1);
   });
-})
+});
 
 
-describe("helper methods", ()=>{
-
+describe('helper methods', () => {
   let testProps = {
       settings: defaultSettings,
       statPlays: [],
