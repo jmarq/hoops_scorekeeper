@@ -64,8 +64,8 @@ describe("test rendering with 'real' store", () => {
 
 
 describe("helper methods", ()=>{
-  it("knows if a rebound is needed", () => {
-    let props = {
+
+  let testProps = {
       settings: defaultSettings,
       statPlays: [],
       endGameAcknowledged: false,
@@ -86,16 +86,68 @@ describe("helper methods", ()=>{
         changeTab: (tabName) => {
         },
       },
-    }
+    };
+
+
+  it('knows if a rebound is needed', () => {
+    let props = {
+      ...testProps,
+    };
     let app = shallow(<UnwrappedApp {...props} />);
+    // no plays yet, needRebound should be false
     expect(app.instance().needRebound()).toEqual([false, undefined]);
+    // with miss as latest play, needRebound should be true
     app.setProps({
       statPlays: [{
         playType: 'miss', team: 0,
       }],
     });
     expect(app.instance().needRebound()).toEqual([true, 0]);
-   });
+  });
+
+
+  it('keeps score correctly', () => {
+    let props = {
+      ...testProps,
+    };
+    let app = shallow(<UnwrappedApp {...props} />);
+    // no plays yet, score should be 0
+    let instance = app.instance();
+
+    expect(instance.teamScore(0)).toEqual({
+      index: 0,
+      name: props.settings.teamNames[0],
+      score: 0,
+    });
+
+    app.setProps({
+      statPlays: [
+        {playType: 'score', team: 0, points: 'two'},
+        {playType: 'score', team: 0, points: 'three'},
+        {playType: 'score', team: 1, points: 'two'},
+      ],
+    });
+    let currentProps = instance.props;
+    let currentPointValues = currentProps.settings.pointValues;
+    let expectedTotal = currentPointValues.two + currentPointValues.three;
+    expect(instance.teamScore(0).score).toEqual(expectedTotal);
+
+    // does it still work after changing the pointValues settings?
+    app.setProps({
+      settings: {
+        ...testProps.settings,
+        pointValues: {
+          two: 200,
+          three: 300,
+        },
+      },
+    });
+
+    currentProps = instance.props;
+    currentPointValues = currentProps.settings.pointValues;
+    expectedTotal = currentPointValues.two + currentPointValues.three;
+    expect(instance.teamScore(0).score).toEqual(expectedTotal);
+  });
 });
 
 
