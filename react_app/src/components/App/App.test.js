@@ -24,7 +24,7 @@ describe('test basic rendering using mock store', () => {
       settings: defaultSettings,
       plays: [],
       endGameAcknowledged: false,
-      activeTab: 'plays',
+      activeTab: 'Plays',
     };
     let store = mockStore(initialState);
     let wrapper = mount(<Provider store={store}><App/></Provider>);
@@ -38,24 +38,24 @@ describe('test rendering with "real" store', () => {
       settings: defaultSettings,
       plays: [],
       endGameAcknowledged: false,
-      activeTab: 'setup',
+      activeTab: 'Setup',
     };
 
     let store = configureStore(initialState);
     let wrapper = mount(<Provider store={store}><App/></Provider>);
 
     // plays, stats, score, setup
-    store.dispatch(changeTab('plays'));
+    store.dispatch(changeTab('Plays'));
     expect(wrapper.find(PlayByPlay).length).toEqual(1);
 
-    store.dispatch(changeTab('stats'));
+    store.dispatch(changeTab('Stats'));
     expect(wrapper.find(TeamStats).length).toEqual(2);
 
-    store.dispatch(changeTab('score'));
+    store.dispatch(changeTab('Score'));
     expect(wrapper.find(ScoreControls).length).toEqual(2);
     expect(wrapper.find(Scoreboard).length).toEqual(1);
 
-    store.dispatch(changeTab('setup'));
+    store.dispatch(changeTab('Setup'));
     expect(wrapper.find(ReduxSetupControls).length).toEqual(1);
   });
 });
@@ -66,7 +66,7 @@ describe('helper methods', () => {
       settings: defaultSettings,
       statPlays: [],
       endGameAcknowledged: false,
-      activeTab: 'score',
+      activeTab: 'Score',
       actions: {
         addPlay: (playObject) => {
         },

@@ -26,8 +26,8 @@ export class UnwrappedApp extends Component {
     //console.log(props.settings);
   }
 
-  handleTab = (ev) => {
-    this.props.actions.changeTab(ev.target.getAttribute('data-tab'));
+  handleTab = (tabName) => {
+    this.props.actions.changeTab(tabName);
   }
 
 
@@ -132,7 +132,7 @@ export class UnwrappedApp extends Component {
   tabContent = () => {
     switch(this.props.activeTab) {
 
-      case 'setup':
+      case 'Setup':
         return(
           <div className='setup-page'>
             <ReduxSetupControls
@@ -152,7 +152,7 @@ export class UnwrappedApp extends Component {
           </div>
         );
 
-      case 'score':
+      case 'Score':
         return(
           <div className='score-page'>
             <div className='score-page__scoreboard'>
@@ -180,7 +180,7 @@ export class UnwrappedApp extends Component {
           </div>
         );
 
-      case 'stats':
+      case 'Stats':
         return(
           <div className='stats-page'>
             <TeamStats team={{index: 0, name: this.props.settings.teamNames[0]}}
@@ -190,7 +190,7 @@ export class UnwrappedApp extends Component {
           </div>
         );
 
-      case 'plays':
+      case 'Plays':
         return(
           <div className='plays-page'>
             <PlayByPlay teamNames={this.props.settings.teamNames}
@@ -220,7 +220,7 @@ export class UnwrappedApp extends Component {
           <button className="modal-close"
           onClick={this.props.actions.acknowledgeEndGame}></button>
         </div>
-        <Tabs activeTab={this.props.activeTab} handler={this.handleTab}></Tabs>
+        <Tabs activeTab={this.props.activeTab} tabNames={['Score', 'Stats', 'Plays', 'Setup']} handler={this.handleTab}></Tabs>
         { this.tabContent() }
       </div>
     );

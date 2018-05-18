@@ -54,7 +54,7 @@ export function endGameReducer(state=false, action) {
   }
 }
 
-export function tabReducer(state="score", action) {
+export function tabReducer(state="Score", action) {
   switch(action.type) {
     case 'CHANGE_TAB':
       return action.targetTab;
